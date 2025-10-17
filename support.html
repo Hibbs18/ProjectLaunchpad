@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Project Launchpad</title>
+    <title>Support - Project Launchpad</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,13 +178,13 @@
             color: #8c52ff;
         }
 
-        /* About Content */
-        .about-section {
+        /* Support Section */
+        .support-section {
             padding: 80px 0;
             background: #f8fafc;
         }
 
-        .about-content {
+        .support-content {
             max-width: 1000px;
             margin: 0 auto;
             background: #ffffff;
@@ -221,20 +221,6 @@
             font-size: 1.25rem;
             color: #6b7280;
             margin-bottom: 50px;
-        }
-
-        .mission-box {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #8c52ff;
-            margin: 30px 0;
-        }
-
-        .mission-box p {
-            margin-bottom: 0;
-            font-weight: 500;
-            color: #1f2937;
         }
 
         .sections-grid {
@@ -283,6 +269,44 @@
             font-weight: 600;
             margin-top: 15px;
             display: inline-block;
+        }
+
+        .quick-links {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #8c52ff;
+            margin: 40px 0;
+        }
+
+        .quick-links h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .quick-link {
+            color: #4b5563;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            padding: 8px 0;
+        }
+
+        .quick-link:hover {
+            color: #8c52ff;
+        }
+
+        .quick-link:before {
+            content: "→ ";
+            color: #8c52ff;
         }
 
         /* Footer */
@@ -348,8 +372,12 @@
                 font-size: 2rem;
             }
 
-            .about-content {
+            .support-content {
                 padding: 30px 20px;
+            }
+
+            .sections-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -396,77 +424,80 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section class="about-section">
+    <!-- Support Section -->
+    <section class="support-section">
         <div class="container">
-            <div class="about-content">
-                <h1>About Project Launchpad</h1>
+            <div class="support-content">
+                <h1>Support Centre</h1>
                 
                 <p class="intro-text">
-                    Empowering smaller Canadian charities to achieve extraordinary impact through accessible tools, expert guidance, and strategic support.
+                    We're here to help you succeed. Find answers, get support, and learn more about how Project Launchpad can serve your charity.
                 </p>
 
-                <div class="mission-box">
-                    <p>
-                        <strong>Our Mission:</strong> To empower smaller Canadian charities with the tools, expertise, and systems they need to amplify their impact without the overhead.
-                    </p>
-                </div>
-
-                <p>
-                    Project Launchpad is an innovative platform designed to accelerate the development and deployment of charitable initiatives across Canada. We exist to bridge the gap between passion and capacity for smaller charities—those doing incredible work but often lacking the resources of larger organizations.
-                </p>
-
-                <h2>Learn More About Us</h2>
+                <h2>How Can We Help You?</h2>
                 
                 <div class="sections-grid">
-                    <a href="about/our-story.html" class="section-card">
-                        <span class="section-icon">📖</span>
-                        <h3>Our Story & Mission</h3>
-                        <p>Discover why we created Project Launchpad and the vision driving our work to support Canada's smaller charities.</p>
-                        <span class="learn-more">Read Our Story →</span>
+                    <a href="support/contact.html" class="section-card">
+                        <span class="section-icon">📧</span>
+                        <h3>Contact Us</h3>
+                        <p>Get in touch with our team for personalized support and inquiries.</p>
+                        <span class="learn-more">Contact Support →</span>
                     </a>
 
-                    <a href="about/meet-the-founders.html" class="section-card">
-                        <span class="section-icon">👥</span>
-                        <h3>Meet the Founders</h3>
-                        <p>Learn about Harmonia Philanthropy and Telos One—the organizations behind Project Launchpad.</p>
-                        <span class="learn-more">Meet the Team →</span>
+                    <a href="support/faq.html" class="section-card">
+                        <span class="section-icon">❓</span>
+                        <h3>FAQ</h3>
+                        <p>Find quick answers to frequently asked questions about membership and resources.</p>
+                        <span class="learn-more">Browse FAQ →</span>
                     </a>
 
-                    <a href="about/plp-impact-network.html" class="section-card">
-                        <span class="section-icon">🤝</span>
-                        <h3>PLP Impact Network</h3>
-                        <p>Explore our ecosystem of vetted experts, service providers, and partners committed to supporting smaller charities.</p>
-                        <span class="learn-more">Explore Network →</span>
+                    <a href="support/help-centre.html" class="section-card">
+                        <span class="section-icon">📚</span>
+                        <h3>Help Centre</h3>
+                        <p>Access guides, tutorials, and step-by-step instructions for using the platform.</p>
+                        <span class="learn-more">Visit Help Centre →</span>
                     </a>
 
-                    <a href="about/fuel-our-mission.html" class="section-card">
-                        <span class="section-icon">🚀</span>
-                        <h3>Fuel Our Mission</h3>
-                        <p>Discover how you can support Project Launchpad and help us empower more charities across Canada.</p>
-                        <span class="learn-more">Get Involved →</span>
+                    <a href="support/governance.html" class="section-card">
+                        <span class="section-icon">⚖️</span>
+                        <h3>Governance</h3>
+                        <p>Learn about our policies, principles, and commitment to transparency.</p>
+                        <span class="learn-more">View Governance →</span>
                     </a>
                 </div>
 
-                <h2>Our Approach</h2>
+                <div class="quick-links">
+                    <h3>Quick Links</h3>
+                    <div class="quick-links-grid">
+                        <a href="support/contact.html" class="quick-link">General Inquiries</a>
+                        <a href="support/contact.html" class="quick-link">Partnership Opportunities</a>
+                        <a href="support/contact.html" class="quick-link">Membership Support</a>
+                        <a href="support/faq.html" class="quick-link">Membership Tiers</a>
+                        <a href="support/faq.html" class="quick-link">Billing & Payments</a>
+                        <a href="support/faq.html" class="quick-link">Technical Support</a>
+                        <a href="support/help-centre.html" class="quick-link">Getting Started Guide</a>
+                        <a href="support/help-centre.html" class="quick-link">Video Tutorials</a>
+                        <a href="support/help-centre.html" class="quick-link">Resource Library</a>
+                        <a href="support/governance.html" class="quick-link">Privacy Policy</a>
+                        <a href="support/governance.html" class="quick-link">Terms of Service</a>
+                        <a href="support/governance.html" class="quick-link">Code of Conduct</a>
+                    </div>
+                </div>
+
+                <h2>Support Hours & Response Times</h2>
                 <p>
-                    With a focus on collaboration, transparency, and scalability, Project Launchpad streamlines project management, fosters creativity, and supports continuous improvement. We offer two membership tiers designed specifically for charities with annual revenues under $500,000:
-                </p>
-                <p>
-                    <strong>Launchpad Lite (Free):</strong> Essential resources including fundraising templates, security basics, policy libraries, and compliance guides to help you get started.
-                </p>
-                <p>
-                    <strong>Lift-Off Tier ($99/month):</strong> Comprehensive support including micro-consultations, advanced toolkits, grant-readiness resources, vetted expert access, and much more—delivering over $5,000 in annual value.
+                    <strong>Email Support:</strong> We typically respond to all inquiries within 1-2 business days.<br>
+                    <strong>Member Support:</strong> Lift-Off Tier members receive priority response within 24 hours.<br>
+                    <strong>Emergency Support:</strong> Critical issues are addressed immediately during business hours.
                 </p>
 
-                <h2>Who We Serve</h2>
+                <h2>Connect With Us</h2>
                 <p>
-                    Whether you're a startup charity or an established organization looking to amplify your impact, Project Launchpad provides the infrastructure you need to succeed. We're here to help you navigate the journey from concept to launch, and from launch to sustainable growth.
+                    Beyond our support channels, you can also connect with us on social media and stay updated on the latest news, resources, and opportunities.
                 </p>
-
-                <h2>Our Impact</h2>
-                <p>
-                    Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" style="color: #8c52ff; text-decoration: none;">Harmonia Philanthropy</a> and <a href="https://telos.one/" style="color: #8c52ff; text-decoration: none;">Telos One</a>. Built for impact, not profit, we're designed exclusively for Canada's smaller charities who are ready to transform their potential into measurable results.
+                <p style="text-align: center; margin-top: 30px;">
+                    📧 <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none; font-weight: 600;">hello@projectlaunchpad.ca</a><br>
+                    👥 <a href="https://www.linkedin.com/company/projectlaunchpad/" style="color: #8c52ff; text-decoration: none; font-weight: 600;">Follow us on LinkedIn</a>
                 </p>
             </div>
         </div>

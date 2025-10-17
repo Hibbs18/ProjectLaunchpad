@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Project Launchpad</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="styles.css">
+    <title>Our Story & Mission - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -178,14 +178,14 @@
             color: #8c52ff;
         }
 
-        /* About Content */
-        .about-section {
+        /* Content Section */
+        .content-section {
             padding: 80px 0;
             background: #f8fafc;
         }
 
-        .about-content {
-            max-width: 1000px;
+        .content-wrapper {
+            max-width: 800px;
             margin: 0 auto;
             background: #ffffff;
             padding: 60px;
@@ -216,13 +216,6 @@
             font-size: 1.125rem;
         }
 
-        .intro-text {
-            text-align: center;
-            font-size: 1.25rem;
-            color: #6b7280;
-            margin-bottom: 50px;
-        }
-
         .mission-box {
             background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
             padding: 30px;
@@ -235,54 +228,6 @@
             margin-bottom: 0;
             font-weight: 500;
             color: #1f2937;
-        }
-
-        .sections-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin: 50px 0;
-        }
-
-        .section-card {
-            background: #f8fafc;
-            padding: 30px;
-            border-radius: 12px;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .section-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.15);
-            border-color: #8c52ff;
-        }
-
-        .section-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .section-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 12px;
-        }
-
-        .section-card p {
-            color: #6b7280;
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-
-        .section-card .learn-more {
-            color: #8c52ff;
-            font-weight: 600;
-            margin-top: 15px;
-            display: inline-block;
         }
 
         /* Footer */
@@ -348,7 +293,7 @@
                 font-size: 2rem;
             }
 
-            .about-content {
+            .content-wrapper {
                 padding: 30px 20px;
             }
         }
@@ -359,114 +304,89 @@
     <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="index.html" class="logo">
+                <a href="../index.html" class="logo">
                     <div class="logo-icon">PL</div>
                     <span>Project Launchpad</span>
                 </a>
                 <div class="nav-center">
                     <ul class="nav-links">
-                        <li><a href="index.html">HOME</a></li>
-                        <li><a href="joinplp.html">JOIN PLP</a></li>
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
                         <li class="dropdown">
-                            <a href="about.html">ABOUT</a>
+                            <a href="../about.html">ABOUT</a>
                             <div class="dropdown-content">
-                                <a href="about/our-story.html">Our Story/Mission</a>
-                                <a href="about/meet-the-founders.html">Meet the Founders</a>
-                                <a href="about/plp-impact-network.html">PLP Impact Network</a>
-                                <a href="about/fuel-our-mission.html">Fuel Our Mission</a>
+                                <a href="our-story.html">Our Story/Mission</a>
+                                <a href="meet-the-founders.html">Meet the Founders</a>
+                                <a href="plp-impact-network.html">PLP Impact Network</a>
+                                <a href="fuel-our-mission.html">Fuel Our Mission</a>
                             </div>
                         </li>
                         <li class="dropdown">
-                            <a href="support.html">SUPPORT</a>
+                            <a href="#support">SUPPORT</a>
                             <div class="dropdown-content">
-                                <a href="support/contact.html">Contact</a>
-                                <a href="support/faq.html">FAQ</a>
-                                <a href="support/help-centre.html">Help Centre</a>
-                                <a href="support/governance.html">Governance</a>
+                                <a href="#contact">Contact</a>
+                                <a href="#faq">FAQ</a>
+                                <a href="#help-centre">Help Centre</a>
+                                <a href="#governance">Governance</a>
                             </div>
                         </li>
-                        <li><a href="resources.html">RESOURCES</a></li>
+                        <li><a href="../resources.html">RESOURCES</a></li>
                     </ul>
                 </div>
                 <div class="header-buttons">
                     <a href="#login" class="btn-login">Login</a>
-                    <a href="joinplp.html" class="btn-primary">Join PLP</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
                 </div>
             </nav>
         </div>
     </header>
 
-    <!-- About Section -->
-    <section class="about-section">
+    <!-- Content Section -->
+    <section class="content-section">
         <div class="container">
-            <div class="about-content">
-                <h1>About Project Launchpad</h1>
+            <div class="content-wrapper">
+                <h1>Our Story & Mission</h1>
                 
-                <p class="intro-text">
-                    Empowering smaller Canadian charities to achieve extraordinary impact through accessible tools, expert guidance, and strategic support.
-                </p>
-
                 <div class="mission-box">
                     <p>
                         <strong>Our Mission:</strong> To empower smaller Canadian charities with the tools, expertise, and systems they need to amplify their impact without the overhead.
                     </p>
                 </div>
 
+                <h2>Our Story</h2>
                 <p>
-                    Project Launchpad is an innovative platform designed to accelerate the development and deployment of charitable initiatives across Canada. We exist to bridge the gap between passion and capacity for smaller charities—those doing incredible work but often lacking the resources of larger organizations.
-                </p>
-
-                <h2>Learn More About Us</h2>
-                
-                <div class="sections-grid">
-                    <a href="about/our-story.html" class="section-card">
-                        <span class="section-icon">📖</span>
-                        <h3>Our Story & Mission</h3>
-                        <p>Discover why we created Project Launchpad and the vision driving our work to support Canada's smaller charities.</p>
-                        <span class="learn-more">Read Our Story →</span>
-                    </a>
-
-                    <a href="about/meet-the-founders.html" class="section-card">
-                        <span class="section-icon">👥</span>
-                        <h3>Meet the Founders</h3>
-                        <p>Learn about Harmonia Philanthropy and Telos One—the organizations behind Project Launchpad.</p>
-                        <span class="learn-more">Meet the Team →</span>
-                    </a>
-
-                    <a href="about/plp-impact-network.html" class="section-card">
-                        <span class="section-icon">🤝</span>
-                        <h3>PLP Impact Network</h3>
-                        <p>Explore our ecosystem of vetted experts, service providers, and partners committed to supporting smaller charities.</p>
-                        <span class="learn-more">Explore Network →</span>
-                    </a>
-
-                    <a href="about/fuel-our-mission.html" class="section-card">
-                        <span class="section-icon">🚀</span>
-                        <h3>Fuel Our Mission</h3>
-                        <p>Discover how you can support Project Launchpad and help us empower more charities across Canada.</p>
-                        <span class="learn-more">Get Involved →</span>
-                    </a>
-                </div>
-
-                <h2>Our Approach</h2>
-                <p>
-                    With a focus on collaboration, transparency, and scalability, Project Launchpad streamlines project management, fosters creativity, and supports continuous improvement. We offer two membership tiers designed specifically for charities with annual revenues under $500,000:
+                    Project Launchpad was born from a simple observation: Canada's charitable sector is powered by thousands of small organizations doing extraordinary work in their communities. These charities—often run by passionate volunteers and small teams—are the backbone of social change. They feed families, mentor youth, protect the environment, support mental health, and tackle countless other critical issues.
                 </p>
                 <p>
-                    <strong>Launchpad Lite (Free):</strong> Essential resources including fundraising templates, security basics, policy libraries, and compliance guides to help you get started.
+                    But there's a problem. While these organizations have the heart, the mission, and the community trust, they often lack something crucial: access to the professional tools, strategic expertise, and operational systems that larger charities take for granted. They're expected to compete for grants, manage complex compliance requirements, build donor relationships, and demonstrate impact—all while operating on shoestring budgets with limited staff.
                 </p>
                 <p>
-                    <strong>Lift-Off Tier ($99/month):</strong> Comprehensive support including micro-consultations, advanced toolkits, grant-readiness resources, vetted expert access, and much more—delivering over $5,000 in annual value.
+                    We saw talented leaders spending more time wrestling with administrative challenges than advancing their missions. We watched incredible initiatives struggle not because of their vision, but because they lacked the infrastructure to scale. We witnessed the frustration of charities being told to "just hire a consultant" when their entire annual budget was less than a single consulting engagement.
+                </p>
+                <p>
+                    This isn't just inefficient—it's unjust. The size of your budget shouldn't determine the quality of your operations or limit your potential for impact.
+                </p>
+                <p>
+                    That's why we created Project Launchpad: to democratize access to the resources that drive charitable success. We're building a platform where smaller charities can access expert guidance, proven templates, strategic tools, and professional support—without the prohibitive costs that typically come with them.
                 </p>
 
-                <h2>Who We Serve</h2>
+                <h2>Why We Exist</h2>
                 <p>
-                    Whether you're a startup charity or an established organization looking to amplify your impact, Project Launchpad provides the infrastructure you need to succeed. We're here to help you navigate the journey from concept to launch, and from launch to sustainable growth.
+                    Smaller Canadian charities face a unique challenge: they have the heart, the mission, and the community trust—but often lack access to the strategic tools, expert guidance, and operational systems that larger organizations take for granted. This resource gap shouldn't limit their impact.
+                </p>
+                <p>
+                    Project Launchpad was created to level the playing field. We provide comprehensive support that transforms how smaller charities operate, fundraise, communicate, and scale their impact—all without requiring them to build expensive internal capacity.
+                </p>
+                <p>
+                    We believe that every charity, regardless of size, deserves access to professional-grade resources. We believe that impact should be measured by outcomes, not overhead. And we believe that by supporting smaller charities, we're investing in the communities they serve and the causes they champion.
                 </p>
 
-                <h2>Our Impact</h2>
+                <h2>Our Vision</h2>
                 <p>
-                    Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" style="color: #8c52ff; text-decoration: none;">Harmonia Philanthropy</a> and <a href="https://telos.one/" style="color: #8c52ff; text-decoration: none;">Telos One</a>. Built for impact, not profit, we're designed exclusively for Canada's smaller charities who are ready to transform their potential into measurable results.
+                    We envision a Canada where every charity—regardless of size or budget—has access to the tools, expertise, and support they need to maximize their impact. Where administrative barriers don't limit mission-driven work. Where smaller organizations can compete on a level playing field with larger institutions. Where passion and purpose are matched with professional capacity.
+                </p>
+                <p>
+                    Through Project Launchpad, we're building that future—one charity at a time.
                 </p>
             </div>
         </div>
