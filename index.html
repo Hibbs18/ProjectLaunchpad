@@ -875,64 +875,55 @@
 
         /* Footer */
         .footer {
-            background: #f8fafc;
-            padding: 60px 0 30px;
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .limited-spots {
+            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
             margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #8c52ff;
+        a {
+            text-decoration: none;
+        }
+        
+        .spots-remaining {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+        
+        .contact-info a {
+            color: #8b5cf6;
             text-decoration: none;
         }
 
-        .footer-links {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-
-        .footer-column h4 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 20px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-column ul li a {
-            color: #6b7280;
+        .contact-info-b a {
+            color: #8b5cf6;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
-
-        .footer-column ul li a:hover {
-            color: #8c52ff;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #e5e7eb;
-            padding: 30px 0;
-            text-align: center;
-            color: #9ca3af;
-            font-size: 0.9rem;
+        
+        .contact-info a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design */
@@ -1338,13 +1329,15 @@
         </div>
     </section>
 
-   <!-- Footer CTA -->
+     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <a href="https://telosone.typeform.com/to/A5Nst6iE"><div class="limited-spots">
-                <h3>Get Priority Access</h3>
-                <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
-            </div></a>
+            <a href="https://telosone.typeform.com/to/A5Nst6iE" style="text-decoration: none;">
+                <div class="limited-spots">
+                    <h3>Get Priority Access</h3>
+                    <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
+                </div>
+            </a>
             <p>Be first in line when Project Launchpad launches—unlock expert tools, exclusive savings, and practical resources designed to help your charity do more with less from day one.</p>
             <div class="contact-info">
                 <p><strong>Connect With Us</strong></p>
