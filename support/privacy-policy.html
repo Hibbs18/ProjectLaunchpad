@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Policy Content */
+        .policy-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .policy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .last-updated {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .placeholder-notice {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+        }
+
+        .placeholder-notice p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8c52ff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 32px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #8c52ff;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom a {
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .policy-content {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="../favicon.png" style="width: 40px; border-radius: 8px;" alt="Project Launchpad Logo">
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html" aria-haspopup="true" aria-expanded="false">ABOUT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="../about/our-story.html" role="menuitem">Our Story/Mission</a>
+                                <a href="../about/meet-the-founders.html" role="menuitem">Meet the Founders</a>
+                                <a href="../about/plp-impact-network.html" role="menuitem">PLP Impact Network</a>
+                                <a href="../about/fuel-our-mission.html" role="menuitem">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="contact.html" role="menuitem">Contact</a>
+                                <a href="faq.html" role="menuitem">FAQ</a>
+                                <a href="help-centre.html" role="menuitem">Help Centre</a>
+                                <a href="governance.html" role="menuitem">Governance</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policy Content -->
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-content">
+                <h1>Privacy Policy</h1>
+                <p class="last-updated">Last Updated: January 2025</p>
+
+                <p><strong>Introduction</strong></p>
+                <p>At Project Launchpad (PLP), we understand that trust is earned through transparency and responsible stewardship of your personal information. This Privacy Policy outlines how we collect, use, disclose, and protect your data when you interact with our platform, services, and community. We are committed to complying with the Personal Information Protection and Electronic Documents Act (PIPEDA) and other applicable privacy laws in Canada.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">1. Who We Are</h2>
+                <p><strong>Project Launchpad</strong> is a collaboration between Harmonia Philanthropy and Telos One, designed to empower smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Email: <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a></li>
+                    <li>Website: <a href="https://projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">projectlaunchpad.ca</a></li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">2. What Information We Collect</h2>
+                <p>We collect information to provide, improve, and personalize our services. The types of information we collect include:</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.1 Information You Provide Directly</h3>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Contact information (e.g., name, email address, phone number)</li>
+                    <li>Organization details (e.g., charity name, CRA registration number)</li>
+                    <li>Account credentials (e.g., username, password)</li>
+                    <li>Payment information (processed securely through third-party payment processors)</li>
+                    <li>Communications with us (e.g., emails, support tickets, feedback)</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.2 Information Collected Automatically</h3>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Device information (e.g., IP address, browser type, operating system)</li>
+                    <li>Usage data (e.g., pages visited, time spent on the platform, clickstream data)</li>
+                    <li>Cookies and similar tracking technologies (see Section 3 for details)</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.3 Information from Third Parties</h3>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Data from partners, vendors, or service providers (e.g., CRM systems, analytics tools)</li>
+                    <li>Publicly available information (e.g., charity registration data from the Canada Revenue Agency)</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">3. How We Use Your Information</h2>
+                <p>We use your information for the following purposes:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Service Delivery:</strong> To provide access to our platform, tools, and resources</li>
+                    <li><strong>Account Management:</strong> To create, maintain, and secure your account</li>
+                    <li><strong>Communication:</strong> To send updates, newsletters, and respond to inquiries</li>
+                    <li><strong>Payment Processing:</strong> To process membership fees and transactions</li>
+                    <li><strong>Improvement and Analytics:</strong> To analyze usage patterns and improve our services</li>
+                    <li><strong>Compliance:</strong> To meet legal and regulatory obligations</li>
+                    <li><strong>Security:</strong> To detect, prevent, and address fraud, abuse, or security issues</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">4. Legal Basis for Processing (PIPEDA Principles)</h2>
+                <p>We process your personal information in accordance with PIPEDA's ten fair information principles:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Accountability:</strong> We are responsible for personal information under our control</li>
+                    <li><strong>Identifying Purposes:</strong> We identify the purposes for which personal information is collected at or before the time of collection</li>
+                    <li><strong>Consent:</strong> Your knowledge and consent are required for the collection, use, or disclosure of personal information, except where inappropriate</li>
+                    <li><strong>Limiting Collection:</strong> We limit the collection of personal information to what is necessary for the identified purposes</li>
+                    <li><strong>Limiting Use, Disclosure, and Retention:</strong> Personal information is not used or disclosed for purposes other than those for which it was collected, except with consent or as required by law</li>
+                    <li><strong>Accuracy:</strong> We keep personal information as accurate, complete, and up-to-date as necessary</li>
+                    <li><strong>Safeguards:</strong> We protect personal information with security safeguards appropriate to the sensitivity of the information</li>
+                    <li><strong>Openness:</strong> We make information about our policies and practices relating to the management of personal information readily available</li>
+                    <li><strong>Individual Access:</strong> Upon request, you can access your personal information and challenge its accuracy and completeness</li>
+                    <li><strong>Challenging Compliance:</strong> You may challenge our compliance with these principles</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">5. How We Share Your Information</h2>
+                <p>We do not sell your personal information. We may share your information with:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Service Providers:</strong> Third-party vendors who assist us in operating our platform (e.g., hosting, payment processing, analytics)</li>
+                    <li><strong>Partners:</strong> Harmonia Philanthropy and Telos One, as co-creators of Project Launchpad</li>
+                    <li><strong>Legal Authorities:</strong> When required by law or to protect our rights, safety, or property</li>
+                    <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or sale of assets</li>
+                </ul>
+                <p>All third parties are contractually obligated to protect your information and use it only for the purposes we specify.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">6. Cookies and Tracking Technologies</h2>
+                <p>We use cookies and similar technologies to enhance your experience on our platform. Cookies are small text files stored on your device that help us:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Remember your preferences and settings</li>
+                    <li>Analyze site traffic and usage patterns</li>
+                    <li>Deliver personalized content and advertisements</li>
+                    <li>Improve platform performance and security</li>
+                </ul>
+                <p>You can manage your cookie preferences through your browser settings. Note that disabling cookies may affect the functionality of our platform.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">7. Data Security</h2>
+                <p>We implement robust security measures to protect your information, including:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Technical Measures:</strong> Encryption (SSL/TLS), firewalls, and secure servers</li>
+                    <li><strong>Administrative Measures:</strong> Access controls, employee training, and confidentiality agreements</li>
+                    <li><strong>Physical Measures:</strong> Secure facilities and restricted access to data centers</li>
+                    <li><strong>Incident Response:</strong> Procedures to detect, respond to, and recover from security breaches</li>
+                </ul>
+                <p>While we strive to protect your information, no system is completely secure. We encourage you to use strong passwords and report any suspicious activity.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">8. Data Retention</h2>
+                <p>We retain your personal information only as long as necessary to fulfill the purposes for which it was collected, or as required by law. Retention periods vary depending on the type of information:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Account Information:</strong> Retained for the duration of your membership and up to 7 years after account closure for legal and compliance purposes</li>
+                    <li><strong>Transaction Records:</strong> Retained for 7 years in accordance with tax and financial regulations</li>
+                    <li><strong>Communications:</strong> Retained as long as necessary to provide support and resolve disputes</li>
+                    <li><strong>Analytics Data:</strong> Aggregated and anonymized data may be retained indefinitely</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">9. Your Privacy Rights</h2>
+                <p>Under PIPEDA and other applicable laws, you have the following rights:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+                    <li><strong>Correction:</strong> Request corrections to inaccurate or incomplete information</li>
+                    <li><strong>Deletion:</strong> Request deletion of your personal information (subject to legal and contractual obligations)</li>
+                    <li><strong>Withdrawal of Consent:</strong> Withdraw your consent for certain uses of your information (may affect your ability to use our services)</li>
+                    <li><strong>Portability:</strong> Request a copy of your information in a structured, commonly used format</li>
+                    <li><strong>Objection:</strong> Object to certain processing activities (e.g., direct marketing)</li>
+                </ul>
+                <p>To exercise your rights, please contact us at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a>. We will respond to your request within 30 days.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">10. Cookies and Tracking Technologies</h2>
+                <p>We use cookies and similar technologies to enhance your experience. You can manage cookie preferences through your browser settings. For more details, see our <a href="data-security-policy.html" style="color: #8c52ff; text-decoration: none;">Data Security Policy</a>.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">11. Third-Party Links</h2>
+                <p>Our platform may contain links to third-party websites or services. We are not responsible for the privacy practices of these external sites. We encourage you to review their privacy policies before providing any personal information.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">12. Children's Privacy</h2>
+                <p>Project Launchpad is not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected information from a child, we will take steps to delete it promptly.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">13. International Data Transfers</h2>
+                <p>Your information may be stored and processed in Canada or other countries where our service providers operate. We ensure that any international transfers comply with applicable data protection laws and that appropriate safeguards are in place.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">14. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of significant changes by:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Posting the updated policy on our website</li>
+                    <li>Sending an email notification to registered users</li>
+                    <li>Displaying a prominent notice on our platform</li>
+                </ul>
+                <p>Your continued use of our services after the effective date of the updated policy constitutes your acceptance of the changes.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">15. Contact Us</h2>
+                <p>If you have questions, concerns, or complaints about this Privacy Policy or our privacy practices, please contact us at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a></p>
+                <p>We are committed to resolving any privacy concerns in a timely and transparent manner. If you are not satisfied with our response, you may file a complaint with the Office of the Privacy Commissioner of Canada:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Website:</strong> <a href="https://www.priv.gc.ca" style="color: #8c52ff; text-decoration: none;">www.priv.gc.ca</a></li>
+                    <li><strong>Phone:</strong> 1-800-282-1376</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">16. Transparency Commitment</h2>
+                <p>At Project Launchpad, transparency is a core value. We are committed to:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Being clear about what information we collect and why</li>
+                    <li>Providing you with control over your personal information</li>
+                    <li>Regularly reviewing and updating our privacy practices</li>
+                    <li>Responding promptly to your questions and concerns</li>
+                </ul>
+                <p>Thank you for trusting Project Launchpad with your information. Together, we can build a stronger, more impactful charitable sector in Canada.</p>
+
+                <div style="margin-top: 40px; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8c52ff;">
+                    <p style="margin: 0; color: #1f2937; font-weight: 600;">Need Help?</p>
+                    <p style="margin: 8px 0 0 0; color: #4b5563;">If you have questions about this Privacy Policy or how we handle your data, please reach out to us at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a></p>
+                </div>
+
+                <a href="governance.html" class="back-link">← Back to Governance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../img/plp_logo_white.png" alt="Project Launchpad" style="height: 50px; width: auto; margin-bottom: 16px;">
+                    </div>
+                    <p class="footer-description">Empowering smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                    <div class="footer-social">
+                        <a href="mailto:hello@projectlaunchpad.ca" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/company/projectlaunchpad/" aria-label="LinkedIn" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about/our-story.html">Our Story</a></li>
+                        <li><a href="../about/meet-the-founders.html">Meet the Founders</a></li>
+                        <li><a href="../about/plp-impact-network.html">Impact Network</a></li>
+                        <li><a href="../about/fuel-our-mission.html">Fuel Our Mission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help-centre.html">Help Centre</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="governance.html">Governance</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="data-security-policy.html">Data Security</a></li>
+                        <li><a href="refund-cancellation-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" target="_blank" rel="noopener">Harmonia Philanthropy</a> and <a href="https://telos.one/" target="_blank" rel="noopener">Telos One</a></p>
+                <p>Built for impact, not profit. Designed exclusively for Canada's smaller charities.</p>
+                <p class="footer-copyright">&copy; 2025 Project Launchpad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

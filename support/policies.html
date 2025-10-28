@@ -1,0 +1,513 @@
+<!-- Created: New Policies page with placeholder content -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policies - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Policies Section */
+        .policies-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .policies-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .intro-text {
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 48px;
+            font-size: 1.125rem;
+        }
+
+        .policy-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .policy-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .policy-card:hover {
+            border-color: #8c52ff;
+            box-shadow: 0 4px 12px rgba(140, 82, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .policy-icon {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .policy-content {
+            flex: 1;
+        }
+
+        .policy-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+            text-decoration: none;
+        }
+
+        .policy-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #8c52ff;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom a {
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .policies-content {
+                padding: 30px 20px;
+            }
+
+            .policy-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="../favicon.png" style="width: 40px; border-radius: 8px;" alt="Project Launchpad Logo">
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html" aria-haspopup="true" aria-expanded="false">ABOUT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="../about/our-story.html" role="menuitem">Our Story/Mission</a>
+                                <a href="../about/meet-the-founders.html" role="menuitem">Meet the Founders</a>
+                                <a href="../about/plp-impact-network.html" role="menuitem">PLP Impact Network</a>
+                                <a href="../about/fuel-our-mission.html" role="menuitem">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="contact.html" role="menuitem">Contact</a>
+                                <a href="faq.html" role="menuitem">FAQ</a>
+                                <a href="help-centre.html" role="menuitem">Help Centre</a>
+                                <a href="governance.html" role="menuitem">Governance</a>
+                                <a href="policies.html" role="menuitem">Policies</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policies Section -->
+    <section class="policies-section">
+        <div class="container">
+            <div class="policies-content">
+                <h1>Key Policies & Documents</h1>
+                
+                <p class="intro-text">We maintain comprehensive policies to guide our operations and protect our members. Key documents include:</p>
+                
+                <div class="policy-grid">
+                    <a href="privacy-policy.html" class="policy-card">
+                        <div class="policy-icon">📄</div>
+                        <div class="policy-content">
+                            <div class="policy-title">Privacy Policy</div>
+                            <div class="policy-description">How we collect, use, and protect your personal information in compliance with PIPEDA</div>
+                        </div>
+                    </a>
+
+                    <a href="terms-of-service.html" class="policy-card">
+                        <div class="policy-icon">📄</div>
+                        <div class="policy-content">
+                            <div class="policy-title">Terms of Service</div>
+                            <div class="policy-description">The agreement governing your use of Project Launchpad services and resources</div>
+                        </div>
+                    </a>
+
+                    <a href="code-of-conduct.html" class="policy-card">
+                        <div class="policy-icon">📄</div>
+                        <div class="policy-content">
+                            <div class="policy-title">Code of Conduct</div>
+                            <div class="policy-description">Expected behaviors and standards for all members of the PLP community</div>
+                        </div>
+                    </a>
+
+                    <a href="data-security-policy.html" class="policy-card">
+                        <div class="policy-icon">📄</div>
+                        <div class="policy-content">
+                            <div class="policy-title">Data Security Policy</div>
+                            <div class="policy-description">Our approach to protecting member data and maintaining platform security</div>
+                        </div>
+                    </a>
+
+                    <a href="refund-cancellation-policy.html" class="policy-card">
+                        <div class="policy-icon">📄</div>
+                        <div class="policy-content">
+                            <div class="policy-title">Refund & Cancellation Policy</div>
+                            <div class="policy-description">Terms and conditions for membership cancellations and refund requests</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../img/plp_logo_white.png" alt="Project Launchpad" style="height: 50px; width: auto; margin-bottom: 16px;">
+                    </div>
+                    <p class="footer-description">Empowering smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                    <div class="footer-social">
+                        <a href="mailto:hello@projectlaunchpad.ca" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/company/projectlaunchpad/" aria-label="LinkedIn" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about/our-story.html">Our Story</a></li>
+                        <li><a href="../about/meet-the-founders.html">Meet the Founders</a></li>
+                        <li><a href="../about/plp-impact-network.html">Impact Network</a></li>
+                        <li><a href="../about/fuel-our-mission.html">Fuel Our Mission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help-centre.html">Help Centre</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="policies.html">Policies</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="data-security-policy.html">Data Security</a></li>
+                        <li><a href="refund-cancellation-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" target="_blank" rel="noopener">Harmonia Philanthropy</a> and <a href="https://telos.one/" target="_blank" rel="noopener">Telos One</a></p>
+                <p>Built for impact, not profit. Designed exclusively for Canada's smaller charities.</p>
+                <p class="footer-copyright">&copy; 2025 Project Launchpad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

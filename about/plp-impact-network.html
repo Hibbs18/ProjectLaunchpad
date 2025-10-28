@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLP Impact Network - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.125rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        .network-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #8c52ff;
+            margin: 30px 0;
+        }
+
+        .network-card h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .network-card p {
+            margin-bottom: 0;
+        }
+
+        .benefits-list {
+            background: #f8fafc;
+            padding: 25px 30px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .benefits-list p {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .benefits-list p:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8c52ff;
+            font-weight: bold;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #8c52ff 0%, #7a47e6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+
+        .cta-box a {
+            color: #8c52ff;
+            background: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+
+        .cta-box a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .limited-spots {
+            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .limited-spots h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .spots-remaining {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+
+        .contact-info a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info-b a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="/favicon.png" style="width: 40px; border-radius: 8px;"></img>
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html">ABOUT</a>
+                            <div class="dropdown-content">
+                                <a href="our-story.html">Our Story/Mission</a>
+                                <a href="meet-the-founders.html">Meet the Founders</a>
+                                <a href="plp-impact-network.html">PLP Impact Network</a>
+                                <a href="fuel-our-mission.html">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                           <a href="../support.html">SUPPORT</a>
+                            <div class="dropdown-content">
+                               <a href="../support/contact.html">Contact</a>
+                                <a href="../support/faq.html">FAQ</a>
+                                <a href="../support/help-centre.html">Help Centre</a>
+                                <a href="../supportgovernance.html">Governance</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>PLP Impact Network</h1>
+                
+                <p class="intro-text">
+                    Your gateway to trusted experts, service providers, and strategic partners committed to empowering smaller Canadian charities.
+                </p>
+
+                <p>
+                    The PLP Impact Network is our carefully curated ecosystem of vetted professionals who share our commitment to making high-quality support accessible to smaller charities. Every partner in our network understands the unique challenges you face and is committed to providing exceptional value at nonprofit-friendly rates.
+                </p>
+
+                <h2>Our Network Partners</h2>
+
+                <div class="network-card">
+                    <h3>🎯 Expert Consultants</h3>
+                    <p>
+                        Access specialists across fundraising, governance, communications, technology, and strategic planning—all experienced in working with smaller organizations. Our consultants offer micro-consultations, project-based support, and ongoing advisory services tailored to your budget and needs.
+                    </p>
+                </div>
+
+                <div class="network-card">
+                    <h3>💼 Service Providers</h3>
+                    <p>
+                        From accounting firms to web developers, graphic designers to legal advisors, our network includes businesses that offer quality services tailored to charitable budgets. Many provide special rates for PLP members, making professional services more accessible than ever.
+                    </p>
+                </div>
+
+                <div class="network-card">
+                    <h3>💻 Technology Partners</h3>
+                    <p>
+                        We partner with leading platforms and tools that provide discounted or donated services to charities. Access enterprise-level solutions for donor management, project tracking, communications, and more—at prices that fit your budget.
+                    </p>
+                </div>
+
+                <div class="network-card">
+                    <h3>🎓 Educational Institutions</h3>
+                    <p>
+                        Through partnerships with colleges and universities, we connect charities with student talent for projects, research, and capacity-building initiatives. Benefit from fresh perspectives and enthusiastic support while providing valuable learning opportunities.
+                    </p>
+                </div>
+
+                <h2>How the Network Works</h2>
+                <p>
+                    Every partner in our network is vetted for quality, reliability, and alignment with our mission. We don't just create a directory—we facilitate meaningful connections that drive results.
+                </p>
+
+                <h3>For Lift-Off Tier Members:</h3>
+                <div class="benefits-list">
+                    <p>Pre-negotiated rates and special discounts exclusive to PLP members</p>
+                    <p>Warm introductions and facilitated connections to the right experts</p>
+                    <p>Quality assurance and accountability through our vetting process</p>
+                    <p>Ongoing support and relationship management</p>
+                    <p>Priority access to new partners as they join the network</p>
+                    <p>Feedback mechanisms to ensure partner quality</p>
+                </div>
+
+                <h2>Our Vetting Process</h2>
+                <p>
+                    We take partner selection seriously. Every organization or individual in our network must demonstrate:
+                </p>
+                <div class="benefits-list">
+                    <p>Proven experience working with smaller charities or nonprofits</p>
+                    <p>Commitment to accessible pricing and flexible engagement models</p>
+                    <p>Strong references and track record of quality work</p>
+                    <p>Alignment with our values of transparency and impact</p>
+                    <p>Understanding of the unique challenges facing smaller organizations</p>
+                </div>
+
+                <div class="cta-box">
+                    <h3>Become a Network Partner</h3>
+                    <p>
+                        Are you a consultant, service provider, or organization interested in supporting smaller Canadian charities? We're always looking to expand our network with partners who share our values and commitment to accessible, high-quality support.
+                    </p>
+                    <p><strong>Partner Benefits Include:</strong></p>
+                    <div class="benefits-list" style="background: rgba(255,255,255,0.1); text-align: left; max-width: 600px; margin: 20px auto;">
+                        <p style="color: rgba(255,255,255,0.95);">Access to a community of mission-driven organizations</p>
+                        <p style="color: rgba(255,255,255,0.95);">Visibility to charities actively seeking your services</p>
+                        <p style="color: rgba(255,255,255,0.95);">Opportunities for meaningful impact work</p>
+                        <p style="color: rgba(255,255,255,0.95);">Connection with like-minded professionals</p>
+                        <p style="color: rgba(255,255,255,0.95);">Recognition as a supporter of Canada's charitable sector</p>
+                    </div>
+                    <a href="mailto:partners@projectlaunchpad.ca">Contact Us About Partnership</a>
+                </div>
+
+                <h2>Success Stories</h2>
+                <p>
+                    Our network partners are already making a difference. From helping charities secure major grants to implementing new donor management systems, from refreshing brand identities to providing strategic planning support—the PLP Impact Network is where expertise meets impact.
+                </p>
+                <p>
+                    As we grow, we'll share more stories of how network connections have transformed charitable operations and amplified impact across Canada.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://telosone.typeform.com/to/A5Nst6iE" style="text-decoration: none;">
+                <div class="limited-spots">
+                    <h3>Get Priority Access</h3>
+                    <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
+                </div>
+            </a>
+            <p>Be first in line when Project Launchpad launches—unlock expert tools, exclusive savings, and practical resources designed to help your charity do more with less from day one.</p>
+            <div class="contact-info">
+                <p><strong>Connect With Us</strong></p>
+                <p>📧 <a href="mailto:hello@projectlaunchpad.ca">hello@projectlaunchpad.ca</a></p>
+                <p>👥 <a href="https://www.linkedin.com/company/projectlaunchpad/">LinkedIn</a></p>
+            </div>
+            <p class="contact-info-b" style="margin-top: 30px; opacity: 0.8;">
+                Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/">Harmonia Philanthropy</a> and <a href="https://telos.one/">Telos One</a><br>
+                Built for impact, not profit. Designed exclusively for Canada's smaller charities.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Our Mission - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-top: 30px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.125rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        .support-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #8c52ff;
+            margin: 30px 0;
+        }
+
+        .support-card h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+
+        .support-card p {
+            margin-bottom: 0;
+        }
+
+        .impact-box {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .impact-stat {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #8c52ff;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .impact-label {
+            font-size: 1.125rem;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #8c52ff 0%, #7a47e6 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-box h3 {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+
+        .cta-box a {
+            color: #8c52ff;
+            background: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.2s;
+            margin: 0 10px;
+        }
+
+        .cta-box a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .ways-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .way-card {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .way-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .way-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .way-card h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+
+        .way-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .limited-spots {
+            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .limited-spots h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .spots-remaining {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+
+        .contact-info a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info-b a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 30px 20px;
+            }
+
+            .ways-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="/favicon.png" style="width: 40px; border-radius: 8px;"></img>
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html">ABOUT</a>
+                            <div class="dropdown-content">
+                                <a href="our-story.html">Our Story/Mission</a>
+                                <a href="meet-the-founders.html">Meet the Founders</a>
+                                <a href="plp-impact-network.html">PLP Impact Network</a>
+                                <a href="fuel-our-mission.html">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html">SUPPORT</a>
+                            <div class="dropdown-content">
+                               <a href="../support/contact.html">Contact</a>
+                                <a href="../support/faq.html">FAQ</a>
+                                <a href="../support/help-centre.html">Help Centre</a>
+                                <a href="../supportgovernance.html">Governance</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>Fuel Our Mission</h1>
+                
+                <p class="intro-text">
+                    Help us empower smaller Canadian charities to achieve extraordinary impact.
+                </p>
+
+                <p>
+                    Project Launchpad is built for impact, not profit. We're committed to keeping our services accessible and affordable for smaller charities—but that mission requires support. Your contribution helps us develop new resources, expand our network, and reach more organizations across Canada.
+                </p>
+
+                <div class="impact-box">
+                    <span class="impact-stat">$99</span>
+                    <p class="impact-label">Monthly membership delivers over <strong>$5,000</strong> in annual value to charities</p>
+                </div>
+
+                <h2>Why Support Matters</h2>
+                <p>
+                    Every dollar contributed to Project Launchpad multiplies across the charitable sector. When you support us, you're not just helping one organization—you're enabling dozens of charities to operate more effectively, reach more people, and create greater impact in their communities.
+                </p>
+
+                <div class="support-card">
+                    <h3>The Multiplier Effect</h3>
+                    <p>
+                        A charity that improves its fundraising capacity through PLP resources can raise thousands more dollars for their cause. A charity that streamlines operations can redirect staff time from administration to mission delivery. A charity that accesses expert guidance can avoid costly mistakes and accelerate their growth. Your support creates ripples of impact across Canada's charitable sector.
+                    </p>
+                </div>
+
+                <h2>Ways to Support</h2>
+                
+                <div class="ways-grid">
+                    <div class="way-card">
+                        <div class="way-icon">💰</div>
+                        <h4>Financial Contribution</h4>
+                        <p>Direct donations help us develop new resources, expand our network, and keep membership affordable.</p>
+                    </div>
+                    
+                    <div class="way-card">
+                        <div class="way-icon">🤝</div>
+                        <h4>Become a Partner</h4>
+                        <p>Join our Impact Network as a service provider or expert consultant supporting smaller charities.</p>
+                    </div>
+                    
+                    <div class="way-card">
+                        <div class="way-icon">📢</div>
+                        <h4>Spread the Word</h4>
+                        <p>Share Project Launchpad with charities in your network who could benefit from our support.</p>
+                    </div>
+                    
+                    <div class="way-card">
+                        <div class="way-icon">🎓</div>
+                        <h4>Share Your Expertise</h4>
+                        <p>Contribute templates, guides, or best practices that can help other charities succeed.</p>
+                    </div>
+                </div>
+
+                <h2>Corporate & Foundation Support</h2>
+                <p>
+                    We welcome partnerships with corporations and foundations who share our commitment to strengthening Canada's charitable sector. Sponsorship opportunities include:
+                </p>
+
+                <div class="support-card">
+                    <h3>🎯 Program Sponsorship</h3>
+                    <p>
+                        Support specific initiatives like our micro-consultation program, resource library development, or regional expansion efforts. Program sponsors receive recognition and regular impact reports.
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <h3>🌟 Membership Sponsorship</h3>
+                    <p>
+                        Sponsor memberships for charities in specific sectors, regions, or communities. Help organizations that might not otherwise be able to afford our services access the support they need.
+                    </p>
+                </div>
+
+                <div class="support-card">
+                    <h3>🚀 Innovation Sponsorship</h3>
+                    <p>
+                        Support the development of new tools, resources, or platform features. Innovation sponsors help us stay at the forefront of charitable sector support.
+                    </p>
+                </div>
+
+                <h2>In-Kind Support</h2>
+                <p>
+                    Beyond financial contributions, we welcome in-kind support including:
+                </p>
+                <p>
+                    • Professional services (legal, accounting, marketing, technology)<br>
+                    • Software licenses or platform access for our members<br>
+                    • Meeting or event space for workshops and training<br>
+                    • Marketing and communications support<br>
+                    • Research and evaluation services
+                </p>
+
+                <div class="cta-box">
+                    <h3>Ready to Support Our Mission?</h3>
+                    <p>
+                        Whether you're interested in making a financial contribution, becoming a partner, or exploring other ways to support Project Launchpad, we'd love to hear from you.
+                    </p>
+                    <a href="mailto:support@projectlaunchpad.ca">Contact Us About Supporting</a>
+                    <a href="mailto:partners@projectlaunchpad.ca">Explore Partnership</a>
+                </div>
+
+                <h2>Transparency & Accountability</h2>
+                <p>
+                    As a platform built for the charitable sector, we hold ourselves to the same standards we promote. We're committed to transparency in how we use resources and measuring our impact. Supporters receive regular updates on how their contributions are making a difference across Canada's charitable sector.
+                </p>
+
+                <p style="text-align: center; margin-top: 40px; font-style: italic; color: #6b7280;">
+                    "Supporting Project Launchpad means supporting every charity we serve—and every community they impact."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://telosone.typeform.com/to/A5Nst6iE" style="text-decoration: none;">
+                <div class="limited-spots">
+                    <h3>Get Priority Access</h3>
+                    <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
+                </div>
+            </a>
+            <p>Be first in line when Project Launchpad launches—unlock expert tools, exclusive savings, and practical resources designed to help your charity do more with less from day one.</p>
+            <div class="contact-info">
+                <p><strong>Connect With Us</strong></p>
+                <p>📧 <a href="mailto:hello@projectlaunchpad.ca">hello@projectlaunchpad.ca</a></p>
+                <p>👥 <a href="https://www.linkedin.com/company/projectlaunchpad/">LinkedIn</a></p>
+            </div>
+            <p class="contact-info-b" style="margin-top: 30px; opacity: 0.8;">
+                Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/">Harmonia Philanthropy</a> and <a href="https://telos.one/">Telos One</a><br>
+                Built for impact, not profit. Designed exclusively for Canada's smaller charities.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

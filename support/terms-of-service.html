@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Policy Content */
+        .policy-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .policy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .last-updated {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .placeholder-notice {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+        }
+
+        .placeholder-notice p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8c52ff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 32px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #8c52ff;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom a {
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .policy-content {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="../favicon.png" style="width: 40px; border-radius: 8px;" alt="Project Launchpad Logo">
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html" aria-haspopup="true" aria-expanded="false">ABOUT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="../about/our-story.html" role="menuitem">Our Story/Mission</a>
+                                <a href="../about/meet-the-founders.html" role="menuitem">Meet the Founders</a>
+                                <a href="../about/plp-impact-network.html" role="menuitem">PLP Impact Network</a>
+                                <a href="../about/fuel-our-mission.html" role="menuitem">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="contact.html" role="menuitem">Contact</a>
+                                <a href="faq.html" role="menuitem">FAQ</a>
+                                <a href="help-centre.html" role="menuitem">Help Centre</a>
+                                <a href="governance.html" role="menuitem">Governance</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policy Content -->
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-content">
+                <h1>Terms of Service</h1>
+                <p class="last-updated">Last Updated: January 2025</p>
+
+                <p><strong>Introduction</strong></p>
+                <p>Welcome to Project Launchpad (PLP). These Terms of Service ("Terms") govern your access to and use of our platform, services, and resources. By creating an account or using our services, you agree to be bound by these Terms. If you do not agree, please do not use our platform.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">1. Acceptance of Terms</h2>
+                <p>By accessing or using Project Launchpad, you acknowledge that you have read, understood, and agree to be bound by these Terms, as well as our <a href="privacy-policy.html" style="color: #8c52ff; text-decoration: none;">Privacy Policy</a> and any other policies referenced herein. These Terms constitute a legally binding agreement between you (the "User" or "Member") and Project Launchpad.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">2. Eligibility & Account Registration</h2>
+                
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.1 Eligibility</h3>
+                <p>To use Project Launchpad, you must:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Be a registered Canadian charity in good standing with the Canada Revenue Agency (CRA)</li>
+                    <li>Have an annual operating budget of $2 million or less</li>
+                    <li>Be authorized to represent your organization and enter into this agreement</li>
+                    <li>Provide accurate and complete information during registration</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.2 Account Registration</h3>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>You must create an account to access certain features of the platform</li>
+                    <li>You are responsible for maintaining the confidentiality of your account credentials</li>
+                    <li>You agree to notify us immediately of any unauthorized use of your account</li>
+                    <li>You are responsible for all activities that occur under your account</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">2.3 Account Termination</h3>
+                <p>We reserve the right to suspend or terminate your account if:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>You violate these Terms or any applicable laws</li>
+                    <li>Your organization no longer meets eligibility criteria</li>
+                    <li>You engage in fraudulent, abusive, or harmful behavior</li>
+                    <li>You fail to pay membership fees or other charges</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">3. Use of Services</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">3.1 Permitted Use</h3>
+                <p>You may use Project Launchpad for:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Accessing tools, resources, and training materials</li>
+                    <li>Participating in community forums and events</li>
+                    <li>Collaborating with other members and partners</li>
+                    <li>Managing your organization's profile and data</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">3.2 Prohibited Use</h3>
+                <p>You agree NOT to:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Use the platform for any illegal or unauthorized purpose</li>
+                    <li>Violate any laws, regulations, or third-party rights</li>
+                    <li>Transmit viruses, malware, or other harmful code</li>
+                    <li>Attempt to gain unauthorized access to our systems or other users' accounts</li>
+                    <li>Scrape, harvest, or collect data from the platform without permission</li>
+                    <li>Impersonate another person or organization</li>
+                    <li>Engage in spamming, phishing, or other abusive behavior</li>
+                    <li>Interfere with or disrupt the platform's functionality</li>
+                    <li>Use the platform to promote commercial products or services unrelated to your charitable mission</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">4. Membership & Fees</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">4.1 Membership Tiers</h3>
+                <p>Project Launchpad offers different membership tiers with varying levels of access and benefits. Details of each tier are available on our website.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">4.2 Payment Terms</h3>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Membership fees are billed annually or as otherwise specified</li>
+                    <li>All fees are in Canadian dollars (CAD) unless otherwise stated</li>
+                    <li>Payment is due upon registration or renewal</li>
+                    <li>We accept payment via credit card, debit card, or other approved methods</li>
+                    <li>You authorize us to charge your payment method for all applicable fees</li>
+                </ul>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">4.3 Refunds & Cancellations</h3>
+                <p>Please refer to our <a href="refund-cancellation-policy.html" style="color: #8c52ff; text-decoration: none;">Refund and Cancellation Policy</a> for details on refunds, cancellations, and membership changes.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">4.4 Fee Changes</h3>
+                <p>We reserve the right to modify membership fees at any time. We will provide at least 30 days' notice of any fee increases. Continued use of the platform after the effective date constitutes acceptance of the new fees.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">5. Intellectual Property</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">5.1 Ownership</h3>
+                <p>All content, materials, and intellectual property on Project Launchpad (including but not limited to text, graphics, logos, software, and trademarks) are owned by Project Launchpad, Harmonia Philanthropy, Telos One, or our licensors. You may not use, reproduce, or distribute any content without our prior written permission.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">5.2 User Content</h3>
+                <p>By submitting content to the platform (e.g., forum posts, feedback, or data), you grant us a non-exclusive, worldwide, royalty-free license to use, reproduce, modify, and display that content for the purpose of operating and improving the platform. You retain ownership of your content.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">5.3 Trademarks</h3>
+                <p>The Project Launchpad name, logo, and related marks are trademarks of Project Launchpad. You may not use these marks without our prior written consent.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">6. Privacy & Data Security</h2>
+                <p>Your privacy is important to us. Our <a href="privacy-policy.html" style="color: #8c52ff; text-decoration: none;">Privacy Policy</a> explains how we collect, use, and protect your personal information. By using the platform, you consent to our data practices as described in the Privacy Policy.</p>
+                <p>For information on how we secure your data, please refer to our <a href="data-security-policy.html" style="color: #8c52ff; text-decoration: none;">Data Security Policy</a>.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">7. Third-Party Services & Integrations</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">7.1 Third-Party Tools</h3>
+                <p>Project Launchpad may integrate with third-party services (e.g., CRM systems, payment processors, analytics tools). Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices or content of third-party services.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">7.2 Links to External Sites</h3>
+                <p>Our platform may contain links to external websites. We do not endorse or control these sites and are not responsible for their content or practices.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">8. Disclaimers & Limitations of Liability</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">8.1 No Warranty</h3>
+                <p>Project Launchpad is provided "as is" and "as available" without warranties of any kind, either express or implied. We do not guarantee that the platform will be uninterrupted, error-free, or secure.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">8.2 Limitation of Liability</h3>
+                <p>To the fullest extent permitted by law, Project Launchpad, Harmonia Philanthropy, and Telos One shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the platform. Our total liability shall not exceed the amount you paid for membership in the 12 months preceding the claim.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">8.3 Indemnification</h3>
+                <p>You agree to indemnify and hold harmless Project Launchpad, Harmonia Philanthropy, Telos One, and their affiliates from any claims, damages, or expenses arising out of your use of the platform or violation of these Terms.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">9. Dispute Resolution</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">9.1 Governing Law</h3>
+                <p>These Terms are governed by the laws of the Province of Ontario and the federal laws of Canada applicable therein, without regard to conflict of law principles.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">9.2 Dispute Resolution Process</h3>
+                <p>In the event of a dispute, we encourage you to contact us first at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a> to seek an informal resolution. If the dispute cannot be resolved informally, it shall be resolved through binding arbitration in accordance with the Arbitration Act of Ontario.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">9.3 Class Action Waiver</h3>
+                <p>You agree to resolve disputes on an individual basis and waive any right to participate in a class action lawsuit or class-wide arbitration.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">10. Changes to Terms</h2>
+                <p>We may update these Terms from time to time to reflect changes in our practices, legal requirements, or platform features. We will notify you of significant changes by:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Posting the updated Terms on our website</li>
+                    <li>Sending an email notification to registered users</li>
+                    <li>Displaying a prominent notice on the platform</li>
+                </ul>
+                <p>Your continued use of the platform after the effective date of the updated Terms constitutes your acceptance of the changes. If you do not agree to the updated Terms, you must stop using the platform and may cancel your membership.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">11. Termination</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">11.1 Termination by You</h3>
+                <p>You may terminate your account at any time by contacting us at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a>. Upon termination, you will lose access to the platform and any associated benefits.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">11.2 Termination by Us</h3>
+                <p>We may suspend or terminate your account at any time, with or without notice, if we believe you have violated these Terms or engaged in conduct that is harmful to the platform or other users.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">11.3 Effect of Termination</h3>
+                <p>Upon termination:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li>Your access to the platform will be revoked</li>
+                    <li>You will no longer be able to use our services or resources</li>
+                    <li>Any outstanding fees or charges will remain due</li>
+                    <li>Provisions of these Terms that by their nature should survive termination (e.g., intellectual property, disclaimers, indemnification) will continue to apply</li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">12. General Provisions</h2>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">12.1 Entire Agreement</h3>
+                <p>These Terms, together with our Privacy Policy and any other policies referenced herein, constitute the entire agreement between you and Project Launchpad regarding your use of the platform.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">12.2 Severability</h3>
+                <p>If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will continue in full force and effect.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">12.3 Waiver</h3>
+                <p>Our failure to enforce any provision of these Terms does not constitute a waiver of that provision or our right to enforce it in the future.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">12.4 Assignment</h3>
+                <p>You may not assign or transfer your rights or obligations under these Terms without our prior written consent. We may assign our rights and obligations to any third party without restriction.</p>
+
+                <h3 style="font-size: 1.4rem; font-weight: 600; color: #1f2937; margin-top: 24px; margin-bottom: 12px;">12.5 Force Majeure</h3>
+                <p>We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including but not limited to acts of God, natural disasters, war, terrorism, labor disputes, or government actions.</p>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">13. Contact Us</h2>
+                <p>If you have questions, concerns, or feedback about these Terms of Service, please contact us:</p>
+                <ul style="margin-left: 24px; margin-bottom: 20px; color: #4b5563; line-height: 1.8;">
+                    <li><strong>Email:</strong> <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a></li>
+                    <li><strong>Website:</strong> <a href="https://projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">projectlaunchpad.ca</a></li>
+                </ul>
+
+                <h2 style="font-size: 1.75rem; font-weight: 700; color: #1f2937; margin-top: 40px; margin-bottom: 16px;">14. Acknowledgment</h2>
+                <p>By using Project Launchpad, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service. Thank you for being part of our community and for your commitment to strengthening Canada's charitable sector.</p>
+
+                <div style="margin-top: 40px; padding: 20px; background: #f8fafc; border-radius: 8px; border-left: 4px solid #8c52ff;">
+                    <p style="margin: 0; color: #1f2937; font-weight: 600;">Questions About These Terms?</p>
+                    <p style="margin: 8px 0 0 0; color: #4b5563;">If you need clarification on any part of these Terms of Service, please don't hesitate to reach out to us at <a href="mailto:hello@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">hello@projectlaunchpad.ca</a></p>
+                </div>
+
+                <a href="governance.html" class="back-link">← Back to Governance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../img/plp_logo_white.png" alt="Project Launchpad" style="height: 50px; width: auto; margin-bottom: 16px;">
+                    </div>
+                    <p class="footer-description">Empowering smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                    <div class="footer-social">
+                        <a href="mailto:hello@projectlaunchpad.ca" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/company/projectlaunchpad/" aria-label="LinkedIn" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about/our-story.html">Our Story</a></li>
+                        <li><a href="../about/meet-the-founders.html">Meet the Founders</a></li>
+                        <li><a href="../about/plp-impact-network.html">Impact Network</a></li>
+                        <li><a href="../about/fuel-our-mission.html">Fuel Our Mission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help-centre.html">Help Centre</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="governance.html">Governance</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="data-security-policy.html">Data Security</a></li>
+                        <li><a href="refund-cancellation-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" target="_blank" rel="noopener">Harmonia Philanthropy</a> and <a href="https://telos.one/" target="_blank" rel="noopener">Telos One</a></p>
+                <p>Built for impact, not profit. Designed exclusively for Canada's smaller charities.</p>
+                <p class="footer-copyright">&copy; 2025 Project Launchpad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

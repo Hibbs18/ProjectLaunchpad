@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code of Conduct - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Policy Content */
+        .policy-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .policy-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .last-updated {
+            color: #6b7280;
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .placeholder-notice {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin-bottom: 32px;
+            border-radius: 8px;
+        }
+
+        .placeholder-notice p {
+            color: #92400e;
+            margin: 0;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #4b5563;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        ul, ol {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            margin-left: 24px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #374151;
+            margin-bottom: 32px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border-left: 4px solid #8c52ff;
+        }
+
+        .contact-box {
+            background: #f0f9ff;
+            border-left: 4px solid #3b82f6;
+            padding: 20px;
+            margin: 32px 0;
+            border-radius: 8px;
+        }
+
+        .contact-box p {
+            margin-bottom: 8px;
+            color: #1e40af;
+        }
+
+        .contact-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #8c52ff;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 32px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #8c52ff;
+        }
+
+        .footer-logo h3 {
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .footer-description {
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .footer-social a:hover {
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 8px;
+        }
+
+        .footer-bottom a {
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-copyright {
+            margin-top: 16px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .policy-content {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="../favicon.png" style="width: 40px; border-radius: 8px;" alt="Project Launchpad Logo">
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html" aria-haspopup="true" aria-expanded="false">ABOUT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="../about/our-story.html" role="menuitem">Our Story/Mission</a>
+                                <a href="../about/meet-the-founders.html" role="menuitem">Meet the Founders</a>
+                                <a href="../about/plp-impact-network.html" role="menuitem">PLP Impact Network</a>
+                                <a href="../about/fuel-our-mission.html" role="menuitem">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="contact.html" role="menuitem">Contact</a>
+                                <a href="faq.html" role="menuitem">FAQ</a>
+                                <a href="help-centre.html" role="menuitem">Help Centre</a>
+                                <a href="governance.html" role="menuitem">Governance</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Policy Content -->
+    <section class="policy-section">
+        <div class="container">
+            <div class="policy-content">
+                <h1>Code of Conduct</h1>
+                <p class="last-updated">Effective Date: January 1, 2025</p>
+
+                <div class="intro-text">
+                    <strong>Building a Respectful Community</strong><br>
+                    Project Launchpad is committed to creating a welcoming, respectful, and inclusive environment for all members of Canada's charitable sector. This Code of Conduct outlines the behaviors and standards we expect from everyone who participates in our community—whether as members, partners, staff, or visitors.
+                </div>
+
+                <h2>1. Our Commitment</h2>
+                <p>Project Launchpad is dedicated to providing a harassment-free, inclusive experience for everyone, regardless of:</p>
+                <ul>
+                    <li>Organization size, budget, or geographic location</li>
+                    <li>Charitable focus or mission area</li>
+                    <li>Age, gender identity, or sexual orientation</li>
+                    <li>Race, ethnicity, or national origin</li>
+                    <li>Religion or belief system</li>
+                    <li>Disability or accessibility needs</li>
+                    <li>Socioeconomic status</li>
+                    <li>Level of experience or expertise</li>
+                </ul>
+
+                <p>We believe that diversity strengthens our community and that every charity—no matter how small—deserves respect, support, and equal access to resources.</p>
+
+                <h2>2. Expected Behaviors</h2>
+                <h3>2.1 Be Respectful & Inclusive</h3>
+                <ul>
+                    <li>Treat all community members with dignity, courtesy, and professionalism</li>
+                    <li>Use welcoming and inclusive language in all communications</li>
+                    <li>Respect different perspectives, experiences, and approaches</li>
+                    <li>Be mindful of cultural differences and communication styles</li>
+                    <li>Acknowledge and value the contributions of others</li>
+                    <li>Create space for quieter voices to be heard</li>
+                </ul>
+
+                <h3>2.2 Collaborate & Support</h3>
+                <ul>
+                    <li>Share knowledge, resources, and experiences generously</li>
+                    <li>Offer constructive feedback with kindness and empathy</li>
+                    <li>Celebrate the successes of fellow members</li>
+                    <li>Help newcomers feel welcome and supported</li>
+                    <li>Recognize that we're all learning and growing together</li>
+                    <li>Focus on collective success rather than individual competition</li>
+                </ul>
+
+                <h3>2.3 Communicate Thoughtfully</h3>
+                <ul>
+                    <li>Be clear, honest, and transparent in your communications</li>
+                    <li>Listen actively and seek to understand before responding</li>
+                    <li>Assume good intentions and give others the benefit of the doubt</li>
+                    <li>Address disagreements respectfully and professionally</li>
+                    <li>Avoid making assumptions about others' knowledge or experience</li>
+                    <li>Use "I" statements when sharing opinions or concerns</li>
+                </ul>
+
+                <h3>2.4 Maintain Professionalism</h3>
+                <ul>
+                    <li>Honor commitments and follow through on promises</li>
+                    <li>Respect confidentiality and privacy</li>
+                    <li>Give credit where credit is due</li>
+                    <li>Be punctual for meetings and events</li>
+                    <li>Respond to communications in a timely manner</li>
+                    <li>Represent your organization and PLP positively</li>
+                </ul>
+
+                <h3>2.5 Protect Privacy & Data</h3>
+                <ul>
+                    <li>Respect the confidentiality of member information</li>
+                    <li>Do not share others' contact information without permission</li>
+                    <li>Follow data protection best practices</li>
+                    <li>Report any privacy or security concerns immediately</li>
+                    <li>Use member-only resources appropriately and ethically</li>
+                </ul>
+
+                <h2>3. Unacceptable Behaviors</h2>
+                <p>The following behaviors are not tolerated in the Project Launchpad community:</p>
+
+                <h3>3.1 Harassment & Discrimination</h3>
+                <ul>
+                    <li>Offensive comments related to protected characteristics</li>
+                    <li>Deliberate intimidation, stalking, or following</li>
+                    <li>Unwelcome sexual attention or advances</li>
+                    <li>Sustained disruption of discussions or events</li>
+                    <li>Discriminatory jokes, language, or imagery</li>
+                    <li>Personal attacks or insults</li>
+                </ul>
+
+                <h3>3.2 Dishonesty & Misrepresentation</h3>
+                <ul>
+                    <li>Providing false information about your organization</li>
+                    <li>Misrepresenting your affiliation with PLP</li>
+                    <li>Plagiarism or claiming others' work as your own</li>
+                    <li>Fraudulent use of resources or services</li>
+                    <li>Impersonating other members or organizations</li>
+                </ul>
+
+                <h3>3.3 Inappropriate Content & Communication</h3>
+                <ul>
+                    <li>Sharing explicit, violent, or disturbing content</li>
+                    <li>Spam, excessive self-promotion, or commercial solicitation</li>
+                    <li>Trolling, inflammatory comments, or deliberate provocation</li>
+                    <li>Doxxing (sharing private information without consent)</li>
+                    <li>Threats of violence or harm</li>
+                </ul>
+
+                <h3>3.4 Misuse of Platform & Resources</h3>
+                <ul>
+                    <li>Unauthorized access to systems or data</li>
+                    <li>Sharing member-only content publicly</li>
+                    <li>Using PLP resources for personal gain</li>
+                    <li>Circumventing security measures</li>
+                    <li>Disrupting platform functionality</li>
+                </ul>
+
+                <h3>3.5 Conflicts of Interest & Exploitation</h3>
+                <ul>
+                    <li>Using membership for competitive advantage</li>
+                    <li>Poaching staff or volunteers from other members</li>
+                    <li>Exploiting relationships for personal or organizational benefit</li>
+                    <li>Engaging in activities that harm other members</li>
+                </ul>
+
+                <h2>4. Reporting Violations</h2>
+                <h3>4.1 How to Report</h3>
+                <p>If you experience or witness behavior that violates this Code of Conduct, please report it promptly:</p>
+
+                <div class="contact-box">
+                    <p><strong>Email:</strong> <a href="mailto:complaints@projectlaunchpad.ca" style="color: #1e40af; text-decoration: none;">complaints@projectlaunchpad.ca</a></p>
+                    <p><strong>For urgent safety concerns:</strong> <a href="mailto:support@projectlaunchpad.ca" style="color: #1e40af; text-decoration: none;">support@projectlaunchpad.ca</a></p>
+                    <p><strong>Response Time:</strong> Within 2 business days (urgent matters within 24 hours)</p>
+                </div>
+
+                <h3>4.2 What to Include</h3>
+                <p>When reporting a violation, please provide:</p>
+                <ul>
+                    <li>Your contact information (unless reporting anonymously)</li>
+                    <li>Names of individuals involved</li>
+                    <li>Description of the incident(s)</li>
+                    <li>Date, time, and location (if applicable)</li>
+                    <li>Any supporting documentation (screenshots, emails, etc.)</li>
+                    <li>Names of witnesses (if any)</li>
+                    <li>Whether you've reported this elsewhere</li>
+                </ul>
+
+                <h3>4.3 Anonymous Reporting</h3>
+                <p>We accept anonymous reports, though they may limit our ability to follow up or take action. If you choose to report anonymously, please provide as much detail as possible.</p>
+
+                <h3>4.4 Confidentiality</h3>
+                <p>All reports will be handled with discretion and confidentiality. Information will only be shared with those who need to know to investigate and resolve the issue.</p>
+
+                <h2>5. Investigation & Response</h2>
+                <h3>5.1 Investigation Process</h3>
+                <p>When a violation is reported, we will:</p>
+                <ol>
+                    <li><strong>Acknowledge receipt</strong> within 2 business days</li>
+                    <li><strong>Assess the situation</strong> and determine appropriate next steps</li>
+                    <li><strong>Gather information</strong> from all parties involved</li>
+                    <li><strong>Review evidence</strong> and consult relevant policies</li>
+                    <li><strong>Make a determination</strong> based on facts and context</li>
+                    <li><strong>Take appropriate action</strong> (see Section 5.2)</li>
+                    <li><strong>Follow up</strong> with the reporter and involved parties</li>
+                </ol>
+
+                <h3>5.2 Possible Consequences</h3>
+                <p>Depending on the severity and context of the violation, consequences may include:</p>
+
+                <h4>Warning</h4>
+                <ul>
+                    <li>Private written warning explaining the violation</li>
+                    <li>Expectation of changed behavior</li>
+                    <li>Documentation in member file</li>
+                </ul>
+
+                <h4>Temporary Suspension</h4>
+                <ul>
+                    <li>Temporary loss of platform access (7-30 days)</li>
+                    <li>Exclusion from events or forums</li>
+                    <li>Required completion of training or education</li>
+                </ul>
+
+                <h4>Permanent Ban</h4>
+                <ul>
+                    <li>Permanent removal from the community</li>
+                    <li>Loss of all membership benefits</li>
+                    <li>No refund of membership fees</li>
+                    <li>Prohibition from future participation</li>
+                </ul>
+
+                <h4>Legal Action</h4>
+                <ul>
+                    <li>Reporting to law enforcement (for criminal behavior)</li>
+                    <li>Pursuit of civil remedies (for damages or harm)</li>
+                    <li>Cooperation with external investigations</li>
+                </ul>
+
+                <h3>5.3 Appeals</h3>
+                <p>If you disagree with a decision, you may appeal by:</p>
+                <ul>
+                    <li>Submitting a written appeal to <a href="mailto:complaints@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">complaints@projectlaunchpad.ca</a></li>
+                    <li>Including new evidence or information</li>
+                    <li>Explaining why you believe the decision was incorrect</li>
+                </ul>
+                <p>Appeals will be reviewed by a senior leader not involved in the original decision. The appeals decision is final.</p>
+
+                <h2>6. Scope & Application</h2>
+                <h3>6.1 Where This Code Applies</h3>
+                <p>This Code of Conduct applies to all Project Launchpad spaces and activities, including:</p>
+                <ul>
+                    <li>Online platform and member portal</li>
+                    <li>Community forums and discussion boards</li>
+                    <li>Virtual and in-person events</li>
+                    <li>Email communications and newsletters</li>
+                    <li>Social media channels and groups</li>
+                    <li>One-on-one interactions between members</li>
+                    <li>Interactions with PLP staff and partners</li>
+                </ul>
+
+                <h3>6.2 Who This Code Applies To</h3>
+                <p>This Code of Conduct applies to:</p>
+                <ul>
+                    <li>All PLP members (Lite and Lift-Off tiers)</li>
+                    <li>PLP staff and contractors</li>
+                    <li>Event speakers and facilitators</li>
+                    <li>Partner organizations and vendors</li>
+                    <li>Guests and visitors to PLP spaces</li>
+                </ul>
+
+                <h3>6.3 Representation</h3>
+                <p>When representing Project Launchpad publicly (e.g., wearing PLP branded materials, speaking at events as a PLP member), you are expected to uphold this Code of Conduct even in external spaces.</p>
+
+                <h2>7. Leadership & Accountability</h2>
+                <h3>7.1 Staff Responsibilities</h3>
+                <p>PLP staff and leadership are expected to:</p>
+                <ul>
+                    <li>Model the behaviors outlined in this Code</li>
+                    <li>Address violations promptly and fairly</li>
+                    <li>Create a culture of respect and inclusion</li>
+                    <li>Provide support to those who report violations</li>
+                    <li>Continuously improve our community standards</li>
+                </ul>
+
+                <h3>7.2 Member Responsibilities</h3>
+                <p>As a PLP member, you are responsible for:</p>
+                <ul>
+                    <li>Reading and understanding this Code of Conduct</li>
+                    <li>Upholding these standards in all PLP spaces</li>
+                    <li>Speaking up when you witness violations</li>
+                    <li>Supporting a positive community culture</li>
+                    <li>Holding yourself and others accountable</li>
+                </ul>
+
+                <h2>8. Continuous Improvement</h2>
+                <h3>8.1 Regular Review</h3>
+                <p>This Code of Conduct will be reviewed annually and updated as needed to:</p>
+                <ul>
+                    <li>Reflect evolving community needs</li>
+                    <li>Address emerging issues or concerns</li>
+                    <li>Incorporate member feedback</li>
+                    <li>Align with best practices</li>
+                </ul>
+
+                <h3>8.2 Member Input</h3>
+                <p>We welcome your feedback on this Code of Conduct. If you have suggestions for improvement, please contact us at <a href="mailto:feedback@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">feedback@projectlaunchpad.ca</a></p>
+
+                <h2>9. Resources & Support</h2>
+                <h3>9.1 Questions About This Code</h3>
+                <p>If you have questions about this Code of Conduct or need clarification on any provision:</p>
+                <div class="contact-box">
+                    <p><strong>Email:</strong> <a href="mailto:complaints@projectlaunchpad.ca" style="color: #1e40af; text-decoration: none;">complaints@projectlaunchpad.ca</a></p>
+                </div>
+
+                <h3>9.2 Support for Members</h3>
+                <p>If you've experienced a violation or need support:</p>
+                <ul>
+                    <li>Reach out to our team at <a href="mailto:support@projectlaunchpad.ca" style="color: #8c52ff; text-decoration: none;">support@projectlaunchpad.ca</a></li>
+                    <li>We can connect you with appropriate resources</li>
+                    <li>All conversations are confidential</li>
+                </ul>
+
+                <h3>9.3 External Resources</h3>
+                <p>For issues beyond PLP's scope:</p>
+                <ul>
+                    <li><strong>Canadian Human Rights Commission:</strong> <a href="https://www.chrc-ccdp.gc.ca" style="color: #8c52ff; text-decoration: none;">www.chrc-ccdp.gc.ca</a></li>
+                    <li><strong>Provincial Human Rights Commissions:</strong> Contact your provincial office</li>
+                    <li><strong>Law Enforcement:</strong> For criminal matters, contact local police</li>
+                </ul>
+
+                <hr style="margin: 40px 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <h2>Our Promise</h2>
+                <p>Project Launchpad is committed to fostering a community where every member feels valued, respected, and supported. We believe that by upholding these standards together, we can create a space where Canadian charities thrive, collaborate, and amplify their impact.</p>
+
+                <p>Thank you for being part of our community and for your commitment to making Project Launchpad a welcoming and inclusive space for all.</p>
+
+                <hr style="margin: 40px 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <h2>Acknowledgment</h2>
+                <p>By participating in Project Launchpad, you acknowledge that you have read, understood, and agree to abide by this Code of Conduct.</p>
+
+                <hr style="margin: 40px 0; border: none; border-top: 2px solid #e5e7eb;">
+
+                <h2>Version History</h2>
+                <ul>
+                    <li><strong>Version 1.0</strong> - January 1, 2025</li>
+                </ul>
+
+                <a href="governance.html" class="back-link">← Back to Governance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="../img/plp_logo_white.png" alt="Project Launchpad" style="height: 50px; width: auto; margin-bottom: 16px;">
+                    </div>
+                    <p class="footer-description">Empowering smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                    <div class="footer-social">
+                        <a href="mailto:hello@projectlaunchpad.ca" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/company/projectlaunchpad/" aria-label="LinkedIn" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about/our-story.html">Our Story</a></li>
+                        <li><a href="../about/meet-the-founders.html">Meet the Founders</a></li>
+                        <li><a href="../about/plp-impact-network.html">Impact Network</a></li>
+                        <li><a href="../about/fuel-our-mission.html">Fuel Our Mission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="help-centre.html">Help Centre</a></li>
+                        <li><a href="governance.html">Governance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="governance.html">Governance</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="data-security-policy.html">Data Security</a></li>
+                        <li><a href="refund-cancellation-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" target="_blank" rel="noopener">Harmonia Philanthropy</a> and <a href="https://telos.one/" target="_blank" rel="noopener">Telos One</a></p>
+                <p>Built for impact, not profit. Designed exclusively for Canada's smaller charities.</p>
+                <p class="footer-copyright">&copy; 2025 Project Launchpad. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

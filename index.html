@@ -2,452 +2,956 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Project Launchpad empowers smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact without the overhead.">
+    <meta name="description" content="Project Launchpad empowers smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact without the overhead!">
     <title>Project Launchpad - Transform Your Charity's Impact</title>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: poppins, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.5;
+            color: #1f2937;
+            background-color: #ffffff;
         }
-        
-        .hero {
-            background: linear-gradient(135deg, rgba(255,92,127,0.9) 0%, rgba(139,92,246,0.9) 100%);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-        }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .slide-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.6s ease-out;
+        }
+
+        .scale-up.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger animation delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
             position: relative;
-            z-index: 1;
+            z-index: 1000;
         }
-        
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tagline {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 18px 40px;
-            font-size: 1.2em;
-            background: white;
-            color: #764ba2;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            background: #f0f0f0;
-        }
-        
-        .stats-bar {
-            background: rgba(0,0,0,0.1);
-            padding: 20px;
-            margin-top: 40px;
-            border-radius: 15px;
+
+        .nav {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            backdrop-filter: blur(10px);
-            animation: fadeInUp 1s ease-out 0.6s both;
+            justify-content: space-between;
+            align-items: center;
         }
-        
-        .stat {
-            text-align: center;
-            padding: 10px;
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
         }
-        
-        .stat-number {
-            font-size: 2.5em;
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
             font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
             display: block;
         }
-        
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.9;
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
         }
-        
-        .outcomes-section {
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #8c52ff;
+            padding: 12px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
             background: white;
-            padding: 80px 20px;
-            margin: 0;
+            border-color: white;
+            color: #8c52ff;
+            transform: translateY(-1px);
         }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 700;
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
         }
-        
-        .section-subtitle {
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Hero Section */
+        .video-hero {
+            padding: 80px 0 120px;
+            background-image:
+                linear-gradient(135deg, rgba(124, 58, 237, 0.8) 0%, rgba(249, 117, 131, 0.75) 100%),
+                url('img/hero_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            font-size: 1.2em;
-            color: #666;
-            margin-bottom: 60px;
+        }
+
+        .video-hero .hero-text h1 {
+            color: #ffffff;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-hero .hero-text p {
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
             max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-text-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
         }
-        
-        .outcome-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
+
+        .hero-buttons .btn-primary {
+            padding: 16px 40px;
+            font-size: 1.25rem;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(140, 82, 255, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(140, 82, 255, 0.8);
+            }
+        }
+
+        .hero-buttons .btn-secondary {
+            background: rgba(255, 255, 255, 0.95);
+            color: #8c52ff;
+            padding: 16px 40px;
+            font-size: 1.25rem;
+            border: 2px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-buttons .btn-secondary:hover {
+            background: white;
+            border-color: white;
+            color: #8c52ff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Auto-scrolling Partners */
+        .partners-section {
+            padding: 60px 0;
+            background: #ffffff;
             overflow: hidden;
         }
-        
-        .outcome-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+
+        .partners-scroll {
+            white-space: nowrap;
+            animation: scroll 30s linear infinite;
         }
-        
-        .outcome-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .outcome-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
-        .outcome-title {
-            font-size: 1.3em;
-            color: #333;
-            margin-bottom: 15px;
+
+        .partner-logo {
+            display: inline-block;
+            height: 60px;
+            width: 140px;
+            margin: 0 30px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 600;
+            color: #6b7280;
+            font-size: 0.875rem;
         }
-        
-        .outcome-description {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
-        
-        .outcome-tools {
-            border-top: 1px solid rgba(0,0,0,0.1);
-            padding-top: 15px;
-            margin-top: 15px;
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
         }
-        
-        .tool-label {
-            font-size: 0.9em;
-            color: #8b5cf6;
-            font-weight: 600;
-            margin-bottom: 8px;
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
         }
-        
-        .tool-list {
-            font-size: 0.9em;
-            color: #555;
-            list-style: none;
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #1f2937;
         }
-        
-        .tool-list li {
-            padding: 3px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .tool-list li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #22c55e;
-            font-weight: bold;
-        }
-        
-        .comparison-section {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 80px 20px;
-        }
-        
-        .membership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 900px;
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
             margin: 0 auto;
         }
-        
-        .membership-card {
-            background: white;
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .membership-card.premium {
-            border: 3px solid #8b5cf6;
-            transform: scale(1.05);
-        }
-        
-        .membership-card.premium::before {
-            content: 'Best Value for Charities';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
-            color: white;
-            padding: 5px 20px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: bold;
-        }
-        
-        .membership-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-        
-        .membership-card.premium:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-        
-        .plan-name {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        
-        .plan-price {
-            font-size: 2.5em;
-            color: #8b5cf6;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .plan-price .period {
-            font-size: 0.5em;
-            color: #666;
-        }
-        
-        .plan-value {
-            color: #22c55e;
-            font-size: 1em;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        
-        .feature-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .feature-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .feature-list li:before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #22c55e;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        
-        .feature-list li.highlight {
-            color: #8b5cf6;
-            font-weight: 600;
-        }
-        
-        .join-button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .join-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
-        }
-        
-        .join-button.free {
-            background: linear-gradient(90deg, #6b7280, #9ca3af);
-        }
-        
-        .resources-detail {
-            background: white;
-            padding: 80px 20px;
-        }
-        
-        .resource-category {
-            margin-bottom: 50px;
-            padding: 30px;
-            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-        }
-        
-        .resource-category:nth-child(even) {
-            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
-        }
-        
-        .resource-category:nth-child(3n) {
-            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
-        }
-        
-        .category-title {
-            font-size: 1.8em;
-            color: #333;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .resource-grid {
+
+        /* Features with Icons */
+        .features-icons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 50px;
+            margin-top: 60px;
         }
-        
-        .resource-item {
-            background: white;
+
+        .feature-icon-card {
+            text-align: center;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #f3f4f6;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .feature-icon-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
         }
-        
-        .resource-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+        /* Individual icon colors */
+        .feature-icon-card:nth-child(1) .feature-icon-large {
+            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
         }
-        
-        .resource-name {
+
+        .feature-icon-card:nth-child(2) .feature-icon-large {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+        }
+
+        .feature-icon-card:nth-child(3) .feature-icon-large {
+            background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+        }
+
+        .feature-icon-card:nth-child(4) .feature-icon-large {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+        }
+
+        .feature-icon-card:nth-child(5) .feature-icon-large {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+        }
+
+        .feature-icon-card:nth-child(6) .feature-icon-large {
+            background: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 100%);
+        }
+
+        .feature-icon-card:nth-child(7) .feature-icon-large {
+            background: linear-gradient(135deg, #f87171 0%, #ef4444 100%);
+        }
+
+        .feature-icon-card:nth-child(8) .feature-icon-large {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
+        .feature-icon-card h3 {
+            font-size: 1.125rem;
             font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
+            color: #1f2937;
         }
-        
-        .resource-description {
-            font-size: 0.9em;
-            color: #666;
+
+        .feature-icon-card p {
+            color: #6b7280;
+            font-size: 0.875rem;
             line-height: 1.5;
         }
-        
-        .tier-badge {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 0.75em;
+
+        .included-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-left: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
         }
-        
-        .tier-badge.free {
-            background: #e5e7eb;
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin: 80px 0;
+        }
+
+        .content-text h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .content-text p {
             color: #6b7280;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 1.125rem;
         }
-        
-        .tier-badge.premium {
-            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #4b5563;
+            font-weight: 500;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8c52ff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .visual-placeholder {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-size: 1.1rem;
+            border: 2px dashed #cbd5e0;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #f3f4f6;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 16px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1f2937;
+        }
+
+        .feature-card p {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Everything in One Place */
+        .everything-section {
+            padding: 80px 0;
+            background: #f8fafc;
+            text-align: center;
+        }
+
+        .everything-video {
+            max-width: 900px;
+            margin: 60px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .everything-video-content {
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bottom-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .bottom-stat {
+            text-align: center;
+        }
+
+        .bottom-stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .bottom-stat-label {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #8c52ff;
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .stats-section .section-title {
             color: white;
         }
-        
+
+        .stats-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .big-stat {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .big-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Membership Tiers */
+        .membership-section {
+            background: #ffffff;
+        }
+
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .membership-card {
+            background: #f8fafc;
+            border: 2px solid #f3f4f6;
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .membership-card:hover {
+            border-color: #8c52ff;
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(140, 82, 255, 0.25);
+        }
+
+        .membership-card.featured {
+            border-color: #8c52ff;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .membership-badge {
+            background: #8c52ff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            display: inline-block;
+        }
+
+        .membership-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .membership-description {
+            color: #6b7280;
+            margin-bottom: 32px;
+            font-size: 1.125rem;
+        }
+
+        .membership-features {
+            list-style: none;
+            margin-bottom: 32px;
+            text-align: left;
+        }
+
+        .membership-features li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            color: #4b5563;
+            font-size: 1rem;
+        }
+
+        .membership-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: #f8fafc;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: #374151;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .author-info p {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: white;
+        }
+
+        .cta-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .btn-white {
+            background: white;
+            color: #8c52ff;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: white;
+            padding: 16px 32px;
+            border: 2px solid white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-outline-white:hover {
+            background: white;
+            color: #8c52ff;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .newsletter-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .newsletter-text h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1f2937;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .email-input {
+            flex: 1;
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: #8c52ff;
+            box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.1);
+        }
+
+        .email-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .btn-subscribe {
+            background: #8c52ff;
+            color: white;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-subscribe:hover {
+            background: #7a47e6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
+        }
+
+        /* Footer */
         .footer {
             background: #1f2937;
             color: white;
             padding: 60px 20px 30px;
             text-align: center;
         }
-        
+
         .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
-        
+
         .limited-spots {
             background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
             color: white;
@@ -487,66 +991,983 @@
         .contact-info a:hover {
             text-decoration: underline;
         }
-        
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .what-you-get-section .features-icons {
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 40px !important;
+            }
+        }
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .hero-text h1 {
+                font-size: 2.5rem;
             }
             
-            .tagline {
-                font-size: 1.2em;
+            .features-icons {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .what-you-get-section .features-icons {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 30px !important;
+            }
+
+            .feature-icon-card {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .what-you-get-section .features-icons {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
             }
             
-            .outcomes-grid {
+            .membership-grid,
+            .features-grid {
                 grid-template-columns: 1fr;
             }
             
-            .membership-card.premium {
-                transform: none;
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .bottom-stats {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .newsletter-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .newsletter-text h2 {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .email-input {
+                width: 100%;
             }
         }
+
+        /* Problem Statement Section */
+        .problem-statement-section {
+            padding: 100px 0;
+            background: #8c52ff;
+            color: white;
+        }
+
+        .problem-statement-section .section-title {
+            font-size: 2.75rem;
+            line-height: 1.3;
+            color: white;
+        }
+
+        .problem-statement-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Value Proposition Section */
+        .value-proposition-section {
+            background: #ffffff;
+        }
+
+        .value-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 2px solid #e5e7eb;
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(140, 82, 255, 0.15);
+            border-color: #8c52ff;
+        }
+
+        .value-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .value-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #8c52ff;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .value-description {
+            color: #6b7280;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* How It Works Section */
+        .how-it-works-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .how-it-works-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(140, 82, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .how-it-works-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 87, 87, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .how-it-works-steps {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fefefe 100%);
+            border: 2px solid transparent;
+            border-radius: 24px;
+            padding: 48px 36px;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+            max-width: 320px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(140, 82, 255, 0.05) 0%, rgba(255, 87, 87, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 24px;
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        .step-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(140, 82, 255, 0.25);
+            border-color: #8c52ff;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 28px;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(140, 82, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .step-card:hover .step-number {
+            transform: rotate(360deg) scale(1.1);
+            box-shadow: 0 12px 32px rgba(140, 82, 255, 0.4);
+        }
+
+        .step-number::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top-color: rgba(255, 255, 255, 0.5);
+            border-right-color: rgba(255, 255, 255, 0.5);
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .step-card:hover .step-title {
+            color: #8c52ff;
+        }
+
+        .step-description {
+            color: #6b7280;
+            font-size: 1rem;
+            line-height: 1.7;
+            transition: color 0.3s ease;
+        }
+
+        .step-card:hover .step-description {
+            color: #4b5563;
+        }
+
+        .step-arrow {
+            font-size: 3rem;
+            color: #8c52ff;
+            font-weight: bold;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .how-it-works-cta {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive adjustments for new sections */
+        @media (max-width: 768px) {
+            .value-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .how-it-works-steps {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .step-arrow {
+                transform: rotate(90deg);
+                font-size: 2rem;
+            }
+
+            .step-card {
+                max-width: 100%;
+            }
+
+            .problem-statement-section .section-title {
+                font-size: 2rem;
+            }
+
+            .value-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Enhanced Grant Connect Section */
+        .grant-connect-section-enhanced {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde047 100%);
+            padding: 120px 0;
+            padding-top: 140px;
+            border: 4px solid #f59e0b;
+            position: relative;
+            overflow: visible;
+        }
+
+        .grant-connect-section-enhanced::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.05) 10px, rgba(255,255,255,.05) 20px),
+                repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(255,255,255,.05) 10px, rgba(255,255,255,.05) 20px);
+            pointer-events: none;
+        }
+
+        .exclusive-badge {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .badge-shimmer {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+            display: inline-block;
+            animation: shimmer 2s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes shimmer {
+            0%, 100% {
+                box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+                transform: scale(1.05);
+            }
+        }
+
+        .grant-connect-section-enhanced .section-title {
+            color: #1f2937;
+            font-size: 3rem;
+            margin-bottom: 32px;
+        }
+
+        .grant-connect-logos {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 24px 0 16px;
+            gap: 16px;
+        }
+
+        .powered-by {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+            margin-bottom: 32px;
+        }
+
+        .value-callout {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 32px auto;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid #f59e0b;
+        }
+
+        .value-strike {
+            margin-bottom: 16px;
+        }
+
+        .value-highlight {
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .value-included {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 2px solid #f3f4f6;
+            text-align: center;
+        }
+
+        .grant-connect-section-enhanced .section-subtitle {
+            color: #1f2937;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+
+        .grant-connect-section-enhanced .feature-card {
+            background: white;
+            border: 2px solid #fbbf24;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.2);
+        }
+
+        .grant-connect-section-enhanced .feature-card:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .btn-grant-connect {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-grant-connect:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.5);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        @media (max-width: 768px) {
+            .grant-connect-section-enhanced {
+                padding: 80px 0;
+                padding-top: 100px;
+            }
+
+            .exclusive-badge {
+                top: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .badge-shimmer {
+                font-size: 0.75rem;
+                padding: 10px 20px;
+            }
+
+            .grant-connect-section-enhanced .section-title {
+                font-size: 2rem;
+            }
+
+            .value-callout {
+                padding: 30px 20px;
+            }
+
+            .value-highlight span:first-child {
+                font-size: 2.5rem !important;
+            }
+
+            .grant-connect-logos {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .grant-connect-logos span {
+                display: none;
+            }
+        }
+
+        /* Ecosystem Impact Statement */
+        .ecosystem-impact {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 40px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 16px;
+            border-left: 4px solid #f59e0b;
+            margin-top: 60px;
+        }
+
+        .impact-icon {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .impact-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #1f2937;
+        }
+
+        .impact-text strong {
+            color: #8c52ff;
+            font-weight: 700;
+        }
+        /* Membership Section Styles */
+        .membership-section {
+            background: #ffffff;
+            padding: 80px 0;
+        }
+
+        .membership-section .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .membership-section .membership-card {
+            background: #f8fafc;
+            border: 2px solid #f3f4f6;
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .membership-section .membership-card:hover {
+            border-color: #8c52ff;
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgba(140, 82, 255, 0.25);
+        }
+
+        .membership-section .membership-card.featured {
+            border-color: #8c52ff;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-width: 3px;
+        }
+
+        .membership-section .membership-card.featured::before {
+            content: 'Best Value for Charities';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .membership-section .membership-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .membership-section .membership-card.featured::before {
+                font-size: 0.7em;
+                padding: 5px 16px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <h1>Stop Choosing Between Impact and Resources</h1>
-            <p class="tagline">Get the strategic tools, expert support, and proven systems that transform smaller Canadian charities into unstoppable forces for good.</p>
-            <a href="#membership" class="cta-button">Explore PLP Memberships →</a>
-            
-            <div class="stats-bar">
-                <div class="stat">
-                    <span class="stat-number">2.5x - 6x</span>
-                    <span class="stat-label">return on investment</span>
+            <nav class="nav">
+                <a href="project-launchpad-updated.html" class="logo">
+                    <img src="img/plp_logo.png" style="height: 50px; width: auto;"></img>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="about.html">ABOUT</a>
+                            <div class="dropdown-content">
+                                <a href="about/our-story.html">Our Story/Mission</a>
+                                <a href="about/meet-the-founders.html">Meet the Founders</a>
+                                <a href="about/plp-impact-network.html">PLP Impact Network</a>
+                                <a href="about/fuel-our-mission.html">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="support.html" aria-haspopup="true" aria-expanded="false">SUPPORT</a>
+                            <div class="dropdown-content" role="menu">
+                                <a href="support/contact.html" role="menuitem">Contact</a>
+                                <a href="support/faq.html" role="menuitem">FAQ</a>
+                                <a href="support/help-centre.html" role="menuitem">Help Centre</a>
+                                <a href="support/governance.html" role="menuitem">Governance</a>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">$5,000</span>
-                    <span class="stat-label">in annual value for just $99/month</span>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="#join" class="btn-primary">Join PLP</a>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">160+ Hours</span>
-                    <span class="stat-label">of upfront vetting & research saved
-                    </span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Video Hero Section -->
+    <section class="video-hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text-container">
+                    <div class="hero-text">
+                        <h1 class="fade-in">Your one-stop hub for sustainable growth and impact</h1>
+                        <p class="fade-in stagger-1">Expert guidance, practical tools, peer community - finally built for you.</p>
+                        
+                        <div class="hero-buttons fade-in stagger-2">
+                            <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary">Join the community</a>
+                            <a href="http://projectlaunchpad.ca/joinplp" class="btn-secondary">Learn More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-     <!-- Membership Comparison -->
-    <section class="comparison-section" id="membership">
+    <!-- Pain Point Validation Section -->
+    <section class="section problem-statement-section">
         <div class="container">
-            <h2 class="section-title">Choose Your Launchpad</h2>
-            <p class="section-subtitle">Start free or unlock full potential—both designed exclusively for smaller Canadian charities.</p>
+            <div class="section-header">
+                <h2 class="section-title fade-in">You're the fundraiser, marketer, IT department, and volunteer coordinator—all at once</h2>
+                <p class="section-subtitle fade-in stagger-1" style="font-size: 1.25rem; max-width: 800px; margin: 0 auto;">Stretched thin. Choosing between mission impact and infrastructure. Spending hours searching for resources you can't afford.</p>
+                <p class="fade-in stagger-2" style="font-size: 1.5rem; font-weight: 700; color: white; margin-top: 32px;">We do the heavy lifting so you don't have to.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Project Launchpad Section -->
+    <section class="section" style="background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">What is Project Launchpad?</h2>
+                <p class="fade-in stagger-1" style="font-size: 1.35rem; line-height: 1.8; color: #1f2937; max-width: 900px; margin: 0 auto; font-weight: 500;">
+                    Project Launchpad (PLP) is a <strong style="color: #8c52ff;">one-stop support hub purpose-built for Canada's small to mid-sized charities</strong>. We equip under-resourced organizations with strategic guidance, accessible tools, and digital solutions to streamline operations, reduce burnout, and amplify impact—<strong style="color: #8c52ff;">without stretching already limited budgets</strong>.
+                </p>
+                
+                <!-- Credibility Elements -->
+                <div class="fade-in stagger-2" style="margin-top: 48px; text-align: center;">
+                    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; margin-bottom: 24px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2rem;">🤝</span>
+                            <div style="text-align: left;">
+                                <div style="font-size: 0.875rem; color: #6b7280; font-weight: 500;">Co-founded by</div>
+                                <div style="font-size: 1rem; color: #1f2937; font-weight: 600;">Harmonia Philanthropy & Telos One</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2rem;">✨</span>
+                            <div style="text-align: left;">
+                                <div style="font-size: 0.875rem; color: #6b7280; font-weight: 500;">Built WITH</div>
+                                <div style="font-size: 1rem; color: #1f2937; font-weight: 600;">6 Founding Member Charities</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2rem;">🌐</span>
+                            <div style="text-align: left;">
+                                <div style="font-size: 0.875rem; color: #6b7280; font-weight: 500;">Powered by</div>
+                                <div style="font-size: 1rem; color: #1f2937; font-weight: 600;">Our Growing Impact Network</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6 Transformative Outcomes Section -->
+    <section class="section outcomes-section" id="plp-outcomes">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">6 Transformative Outcomes You'll Achieve</h2>
+                <p class="section-subtitle fade-in stagger-1">With PLP's strategic guidance, accessible tools, and expert support, you'll transform these critical areas of your organization.</p>
+            </div>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card scale-up stagger-1">
+                    <div class="outcome-icon">💰</div>
+                    <h3 class="outcome-title">Raise More Money, More Reliably</h3>
+                    <p class="outcome-description">Transform your fundraising with data-driven strategies, helpful templates, and campaigns that actually convert donors.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Annual fundraising calendars</li>
+                            <li>Grant-writing templates & toolkit</li>
+                            <li>Donor engagement strategies</li>
+                            <li>Imagine Canada's Grant Connect - Community Edition access</li>
+                            <li>Campaign ROI & gift matrix calculators</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+
+                <div class="outcome-card scale-up stagger-2">
+                    <div class="outcome-icon">📣</div>
+                    <h3 class="outcome-title">Tell Your Story with Confidence</h3>
+                    <p class="outcome-description">Create compelling narratives with professional branding, polished visuals, and websites that convert interest into action.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Social media templates library</li>
+                            <li>Content creation guides</li>
+                            <li>Email marketing templates</li>
+                            <li>Brand messaging frameworks</li>
+                            <li>Website optimization checklists</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+
+                <div class="outcome-card scale-up stagger-3">
+                    <div class="outcome-icon">⚡</div>
+                    <h3 class="outcome-title">Run Lean, Efficient Operations</h3>
+                    <p class="outcome-description">Slash administrative hours with plug-and-play tools, automated workflows, and systems that just work.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Project management templates</li>
+                            <li>Volunteer management systems</li>
+                            <li>AI-powered workflow tools</li>
+                            <li>Disaster & incident response planning</li>
+                            <li>Operations & standard operation procedure library</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+
+                <div class="outcome-card scale-up stagger-4">
+                    <div class="outcome-icon">🔒</div>
+                    <h3 class="outcome-title">Stay Legally & Digitally Safe</h3>
+                    <p class="outcome-description">Protect your organization with vetted compliance resources, cybersecurity tools, and expert guidance on privacy laws.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Enhanced cybersecurity suite</li>
+                            <li>Risk assessment checklists</li>
+                            <li>PIPEDA compliance guides</li>
+                            <li>Policy templates library</li>
+                            <li>DNS filtering & email protection</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+
+                <div class="outcome-card scale-up stagger-1">
+                    <div class="outcome-icon">📚</div>
+                    <h3 class="outcome-title">Keep Learning in One Place</h3>
+                    <p class="outcome-description">Access a constantly updated library of guides, trainings, and coaching—everything you need, when you need it.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Micro-consultations</li>
+                            <li>Webinars & townhalls</li>
+                            <li>On-demand training library</li>
+                            <li>Best practices database</li>
+                            <li>Expert Q&A sessions</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+
+                <div class="outcome-card scale-up stagger-2">
+                    <div class="outcome-icon">🚀</div>
+                    <h3 class="outcome-title">Scale Without Burning Out</h3>
+                    <p class="outcome-description">Access on-demand expertise and student volunteers for specialized projects, so your team can focus on mission-critical work.</p>
+                    <div class="outcome-tools" style="display: none;">
+                        <p class="tool-label">Tools & Resources Available to You:</p>
+                        <ul class="tool-list">
+                            <li>Vetted expert network access</li>
+                            <li>Student volunteer pool</li>
+                            <li>Strategic planning guides</li>
+                            <li>Capacity building resources</li>
+                            <li>Peer learning roundtables</li>
+                        </ul>
+                    </div>
+                    <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Impact Network -->
+    <section class="partners-section">
+        <div class="container">
+            <h2 class="partners-title">Our Impact Network</h2>
+            <div class="partners-scroll">
+                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
+                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
+                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
+                <img src="img/logos/mcgill_logo.png" alt="McGill University" class="partner-logo-img">
+                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
+                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
+                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
+                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
+                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <!-- Duplicate for seamless loop -->
+                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
+                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
+                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
+                <img src="img/logos/mcgill_logo.png" alt="McGill University" class="partner-logo-img">
+                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
+                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
+                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
+                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
+                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+            </div>
+            <div class="partners-cta">
+                <a href="about/plp-impact-network.html" class="btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <!-- Value Proof Section -->
+    <section class="section value-proposition-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">The Value You Get</h2>
+                <p class="section-subtitle fade-in stagger-1">$600-2000+ in tools and expertise (and growing!)—all for $99/month</p>
+            </div>
+            
+            <div class="value-cards-grid">
+                <div class="value-card fade-in stagger-1">
+                    <div class="value-icon">📊</div>
+                    <div class="value-number">$250+</div>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-top: -8px; margin-bottom: 8px;">monthly</p>
+                    <div class="value-title">in Curated Tools</div>
+                    <p class="value-description">Access a collection of curated courses, frameworks, and resources at grassroots prices</p>
+                </div>
+                
+                <div class="value-card fade-in stagger-2">
+                    <div class="value-icon">⏱️</div>
+                    <div class="value-number">230+</div>
+                    <div class="value-title">Hours Saved Annually</div>
+                    <p class="value-description">We find, vet, and simplify opportunities for you</p>
+                </div>
+                
+                <div class="value-card fade-in stagger-3">
+                    <div class="value-icon">🤝</div>
+                    <div class="value-number">9</div>
+                    <div class="value-title">Sector Allies</div>
+                    <p class="value-description">Access discounted services from vetted professionals who understand small charity budgets</p>
+                </div>
+                
+                <div class="value-card fade-in stagger-4" style="border: 3px solid #f59e0b; background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #f59e0b, #fbbf24); color: white; padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">LIFT-OFF EXCLUSIVE</div>
+                    <div class="value-icon">🎯</div>
+                    <div class="value-number" style="color: #f59e0b;">$52+</div>
+                    <p style="font-size: 0.875rem; color: #6b7280; margin-top: -8px; margin-bottom: 8px;">monthly</p>
+                    <div class="value-title">Grants Directory</div>
+                    <p class="value-description">Access Imagine Canada's Grant Connect - Community Edition</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- How It Works Section -->
+    <section class="section how-it-works-section" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">How It Works</h2>
+                <p class="section-subtitle fade-in stagger-1">Become a Community Champion 3-Steps</p>
+            </div>
+            
+            <div class="how-it-works-steps">
+                <div class="step-card fade-in stagger-1">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Join Our Community</h3>
+                    <p class="step-description">Choose Launchpad Lite (free) or Lift-Off ($99/month)</p>
+                </div>
+                
+                <div class="step-arrow fade-in stagger-2">→</div>
+                
+                <div class="step-card fade-in stagger-2">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Access Your Resources</h3>
+                    <p class="step-description">Tools, templates, AI generators, expert guidance—all in one place</p>
+                </div>
+                
+                <div class="step-arrow fade-in stagger-3">→</div>
+                
+                <div class="step-card fade-in stagger-3">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Amplify Your Impact</h3>
+                    <p class="step-description">Implement what works, skip what doesn't, save time for mission</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Membership Comparison Section -->
+    <section class="section membership-section" id="membership-comparison" style="padding-top: 100px;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Choose Your Launchpad</h2>
+                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities.</p>
+            </div>
             
             <div class="membership-grid">
-                <div class="membership-card">
-                    <h3 class="plan-name">Launchpad Lite</h3>
-                    <div class="plan-price">Free <span class="period">forever</span></div>
-                    <div class="plan-value">Essential resources to get started</div>
+                <div class="membership-card fade-in stagger-1">
+                    <div class="membership-badge" style="background: #6b7280;">Launchpad Lite</div>
+                    <h3 class="membership-title">Free Forever</h3>
+                    <p class="membership-description">Essential resources to get started</p>
                     
-                    <ul class="feature-list">
+                    <ul class="membership-features">
                         <li>Basic fundraising calendar & templates</li>
                         <li>Security hygiene tips & basics</li>
                         <li>Policy template library</li>
@@ -557,305 +1978,674 @@
                         <li>CRA compliance guides</li>
                     </ul>
                     
-                     <a href="https://telosone.typeform.com/to/A5Nst6iE"><button class="join-button free">Secure My Access</button></a>
+                    <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
                 </div>
                 
-                <div class="membership-card premium">
-                    <h3 class="plan-name">Lift-Off Tier</h3>
-                    <div class="plan-price">$99 <span class="period">/month</span></div>
-                    <div class="plan-value">$5,000+ annual value unlocked</div>
+                <div class="membership-card featured fade-in stagger-2">
+                    <div class="membership-badge">Lift-Off Tier</div>
+                    <h3 class="membership-title">$99/month</h3>
+                    <p class="membership-description" style="color: #22c55e; font-weight: 600; font-size: 1.125rem;">$5,000+ annual value unlocked</p>
                     
-                    <ul class="feature-list">
-                        <li><strong>Everything in Launchpad Lite plus:</strong></li>
-                        <li class="highlight">Micro-consultations</li>
-                        <li class="highlight">Advanced toolkits & templates</li>
-                        <li class="highlight">Grant-readiness toolkit</li>
-                        <li class="highlight">Disaster & incident response planning</li>
-                        <li class="highlight">Risk assessment tools</li>
-                        <li class="highlight">Imagine Canada Grant Connect</li>
-                        <li class="highlight">Subsidized access to multi-discipline vetted experts</li>
-                        <li class="highlight">Priority webinar access</li>
-                        <li class="highlight">Small-group coaching</li>
-                        <li class="highlight">Student volunteer pool</li>
+                    <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-bottom: 24px; border-left: 4px solid #f59e0b;">
+                        <p style="margin: 0; font-size: 0.95rem; color: #1f2937; font-weight: 600;">
+                            <span style="font-size: 1.5rem; display: block; margin-bottom: 4px;">💰 ROI Breakdown</span>
+                            Monthly value: $600-2,000+ | Your investment: $99
+                        </p>
+                    </div>
+                    
+                    <ul class="membership-features">
+                        <li style="font-weight: 600; color: #8c52ff;">Everything in Launchpad Lite plus:</li>
+                        <li>Monthly micro-consultations with experts</li>
+                        <li>Advanced toolkits & templates (500+)</li>
+                        <li>Grant-readiness toolkit</li>
+                        <li>Disaster & incident response planning</li>
+                        <li>Risk assessment tools</li>
+                        <li style="background: #fef3c7; padding: 8px; border-radius: 4px; font-weight: 600;">🎯 Grant Connect - Community Edition ($624/year value)</li>
+                        <li>Subsidized access to vetted sector allies (25% off)</li>
+                        <li>Priority webinar access</li>
+                        <li>Small-group coaching sessions</li>
+                        <li>Student volunteer pool access</li>
                     </ul>
                     
-                    <a href="https://telosone.typeform.com/to/A5Nst6iE"><button class="join-button">Secure My Access</button></a>
+                    <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary" style="width: 100%; text-align: center; display: block; animation: pulse-glow 2s infinite;">Get Started</a>
+                </div>
+            </div>
+            
+            <div class="fade-in stagger-3" style="text-align: center; margin-top: 48px; padding: 32px; background: #f8fafc; border-radius: 16px;">
+                <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 16px;">
+                    <strong style="color: #1f2937;">Not sure which tier is right for you?</strong>
+                </p>
+                <p style="font-size: 1rem; color: #6b7280; margin-bottom: 24px;">
+                    Start with Launchpad Lite (free) and upgrade to Lift-Off anytime. No credit card required to start.
+                </p>
+                <a href="joinplp.html" class="btn-secondary">View Detailed Comparison →</a>
+            </div>
+        </div>
+    </section>
+
+        </div>
+    </section>
+
+    <!-- Sneak Preview of Your Toolkit Section -->
+    <section class="section sneak-preview-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="section-header">
+                <h2 class="section-title">Sneak Preview of Your Toolkit</h2>
+                <p class="section-subtitle">Explore the resources, tools, and frameworks included in your membership. Not just promises—here is exactly what you are getting.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="preview-tabs">
+                <button class="preview-tab active" data-tab="frameworks">📖 Frameworks & Training</button>
+                <button class="preview-tab" data-tab="tools">🛠️ Tools & Resources</button>
+                <button class="preview-tab" data-tab="support">🤝 Support & Partners</button>
+            </div>
+
+            <!-- Tab Panels -->
+            <div class="preview-content">
+                
+                <!-- PANEL 1: Frameworks -->
+                <div class="preview-panel active" id="frameworks">
+                    <div class="preview-carousel">
+                        
+                        <div class="preview-slide active" data-slide="0">
+                            <div class="slide-content">
+                                <h3>Multiple Course & Resource Categories</h3>
+                                <p>Access comprehensive training across key areas of nonprofit management, all tailored for Canadian charities.</p>
+                                <ul class="feature-checklist">
+                                    <li><strong>Marketing Mastery</strong> - Strategic communications, donor engagement, and storytelling frameworks</li>
+                                    <li><strong>Zero Budget Cybersecurity Items</strong> - Essential security practices and tools for resource-constrained organizations</li>
+                                    <li><strong>Grant Writing Fundamentals</strong> - From research to submission, master the grant application process</li>
+                                    <li><strong>Metrics that Matter</strong> - Impact measurement and data-driven decision making</li>
+                                    <li><strong>And many more</strong> - Governance, compliance, operations, and capacity building</li>
+                                </ul>
+                                <span class="slide-badge">New courses added regularly</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="1">
+                            <div class="slide-content">
+                                <h3>AI Campaign-in-a-Box</h3>
+                                <p>Generate complete monthly campaigns in 60 seconds—email copy, social posts, poster text.</p>
+                                <ul class="feature-checklist">
+                                    <li>4 weeks of social media posts (FB, IG, LinkedIn)</li>
+                                    <li>Complete email sequence with subject lines</li>
+                                    <li>Poster/graphic copy with compliance notes</li>
+                                    <li>Call-to-action variations</li>
+                                    <li>Export as Word doc or copy-paste directly</li>
+                                </ul>
+                                <span class="slide-badge">Saves 8-10 hours per campaign</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="2">
+                            <div class="slide-content">
+                                <h3>18+ Training Courses</h3>
+                                <p>From fundraising fundamentals to cybersecurity essentials—all Canadian-focused.</p>
+                                <ul class="feature-checklist">
+                                    <li>Fundraising & Development</li>
+                                    <li>Marketing & Communications</li>
+                                    <li>Operations & Governance</li>
+                                    <li>Technology & Security</li>
+                                    <li>Compliance & Legal</li>
+                                </ul>
+                                <span class="slide-badge">New courses added monthly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-prev">‹</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                        <button class="carousel-next">›</button>
+                    </div>
+                </div>
+
+                <!-- PANEL 2: Tools -->
+                <div class="preview-panel" id="tools">
+                    <div class="preview-carousel">
+                        
+                        <div class="preview-slide active" data-slide="0">
+                            <div class="slide-content">
+                                <h3>50+ Templates and Tools (and growing)</h3>
+                                <p>Powerful, practical resources designed specifically for smaller Canadian charities.</p>
+                                <ul class="feature-checklist">
+                                    <li><strong>Gift Planning Matrix</strong> - Strategic donor cultivation and major gift planning</li>
+                                    <li><strong>Cyber Readiness Checklist</strong> - Assess and improve your organization's security posture</li>
+                                    <li><strong>Policy Document Templates</strong> - Essential governance and operational policies</li>
+                                    <li><strong>Budget Calculators & Financial Tools</strong> - Streamline financial planning and reporting</li>
+                                    <li><strong>Consolidated Resource Hub</strong> - One-stop access to vetted free resources across all categories</li>
+                                </ul>
+                                <span class="slide-badge">All Canadian-compliant</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="1">
+                            <div class="slide-content">
+                                <h3>🎯 Grant Connect Access</h3>
+                                <p><strong>Average $624/year value.</strong> Included FREE with Lift-Off membership.</p>
+</search_and_replace>
+                                <ul class="feature-checklist">
+                                    <li>5,000+ grant opportunities in one place</li>
+                                    <li>Search by region, cause, funding amount</li>
+                                    <li>Automated deadline notifications</li>
+                                    <li>Track applications and submissions</li>
+                                    <li>Powered by Imagine Canada</li>
+                                </ul>
+                                <span class="slide-badge highlight">🏆 Most Valuable Benefit</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="2">
+                            <div class="slide-content">
+                                <h3>Enterprise Cybersecurity Suite</h3>
+                                <p>Professional-grade security at 50%+ off retail pricing.</p>
+                                <ul class="feature-checklist">
+                                    <li>DNS filtering (10 endpoints free)</li>
+                                    <li>Password manager for team</li>
+                                    <li>Email protection & phishing defense</li>
+                                    <li>Security training & best practices</li>
+                                    <li>Ongoing support from ControlD partnership</li>
+                                </ul>
+                                <span class="slide-badge">Normally $300-600/month</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-prev">‹</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                        <button class="carousel-next">›</button>
+                    </div>
+                </div>
+
+                <!-- PANEL 3: Support -->
+                <div class="preview-panel" id="support">
+                    <div class="preview-carousel">
+                        
+                        <div class="preview-slide active" data-slide="0">
+                            <div class="slide-content">
+                                <h3>7 Vetted Sector Allies</h3>
+                                <p>Pre-negotiated discounts with professionals who understand small charity budgets.</p>
+                                <ul class="feature-checklist">
+                                    <li>25% off contracts under $5K</li>
+                                    <li>15% off contracts above $5K</li>
+                                    <li>PLP-exclusive service packages</li>
+                                    <li>Group rates for multiple charities</li>
+                                    <li>Quality guaranteed - all experts vetted</li>
+                                </ul>
+                                <span class="slide-badge">Harmonia, ControlD, Salytics +4</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="1">
+                            <div class="slide-content">
+                                <h3>Monthly Micro-Consultations</h3>
+                                <p>30-minute video calls with sector experts included in Lift-Off membership.</p>
+                                <ul class="feature-checklist">
+                                    <li>Book when you need specific guidance</li>
+                                    <li>Experts in fundraising, marketing, governance, IT</li>
+                                    <li>One session per month included</li>
+                                    <li>Additional sessions at member rates</li>
+                                    <li>Real answers from real professionals</li>
+                                </ul>
+                                <span class="slide-badge">Worth $150-300/session</span>
+                            </div>
+                        </div>
+
+                        <div class="preview-slide" data-slide="2">
+                            <div class="slide-content">
+                                <h3>Community & Live Events</h3>
+                                <p>Connect with peers, share experiences, and learn from each other.</p>
+                                <ul class="feature-checklist">
+                                    <li>Monthly Townhalls (live)</li>
+                                    <li>Quarterly deep-dive webinars</li>
+                                    <li>Small-group peer roundtables</li>
+                                    <li>Member-only discussion forums</li>
+                                    <li>Student volunteer pool (80% placement success)</li>
+                                </ul>
+                                <span class="slide-badge">Active community of 50+ charities</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-prev">‹</button>
+                        <div class="carousel-dots">
+                            <span class="dot active" data-slide="0"></span>
+                            <span class="dot" data-slide="1"></span>
+                            <span class="dot" data-slide="2"></span>
+                        </div>
+                        <button class="carousel-next">›</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="preview-cta">
+                <p>Ready to access your complete toolkit?</p>
+                <a href="joinplp.html" class="btn-primary">Explore Membership Tiers</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive: Free Grant Connect Access Section -->
+    <section class="section grant-connect-section-enhanced">
+        <div class="exclusive-badge">
+            <span class="badge-shimmer">🎯 EXCLUSIVE BENEFIT</span>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">Grant Connect Community Edition Access</h2>
+                
+                <!-- Partner Logos -->
+                <div class="grant-connect-logos fade-in stagger-1">
+                    <img src="img/logos/imagine_logo.png" alt="Imagine Canada" style="height: 45px; width: auto; object-fit: contain; max-width: 200px;">
+                    <span style="font-size: 1.5rem; color: #d1d5db; margin: 0 16px;">+</span>
+                    <img src="img/logos/salytics_logo.png" alt="Salytics" style="height: 45px; width: auto; object-fit: contain; max-width: 200px;">
+                </div>
+                <p class="powered-by fade-in stagger-2">Powered by Imagine Canada and Salytics</p>
+                
+                <!-- Value Callout -->
+                <div class="value-callout fade-in stagger-3">
+                    <div class="value-highlight">
+                        <span style="font-size: 1.25rem; font-weight: 600; color: #6b7280; display: block; margin-bottom: 12px;">Normally $624/year</span>
+                        <span style="font-size: 3rem; font-weight: 800; color: #1f2937; display: block; line-height: 1;">$52+</span>
+                        <span style="font-size: 1.25rem; font-weight: 600; color: #1f2937;">Monthly Value</span>
+                    </div>
+                    <div class="value-included">
+                        <span style="font-size: 1.5rem; font-weight: 700; color: #8c52ff;">Included with Lift-Off Membership</span>
+                    </div>
+                </div>
+                
+                <p class="section-subtitle fade-in stagger-4" style="margin-top: 32px; max-width: 800px;">Imagine Canada's Community Edition of Grant Connect gives you instant access to thousands of private and public foundation grants—searchable by region, cause area, and funding amount. No more hours spent Googling. No more missed deadlines. Your entire grant research process in one dashboard.</p>
+            </div>
+            
+            <div class="features-grid" style="margin-top: 60px; grid-template-columns: repeat(2, 1fr);">
+                <div class="feature-card scale-up stagger-1">
+                    <div class="feature-icon">🔍</div>
+                    <h3>12,000+ Funder Profiles</h3>
+                    <p>Search comprehensive funder profiles to find your best matches across Canada</p>
+                </div>
+                
+                <div class="feature-card scale-up stagger-2">
+                    <div class="feature-icon">📊</div>
+                    <h3>1.87M+ Gift Records</h3>
+                    <p>Analyze gift records to understand funder behaviour and giving patterns</p>
+                </div>
+                
+                <div class="feature-card scale-up stagger-3">
+                    <div class="feature-icon">🤝</div>
+                    <h3>45+ Community Partners</h3>
+                    <p>Join Community Edition partners across the country leveraging this powerful tool</p>
+                </div>
+                
+                <div class="feature-card scale-up stagger-4">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Get real-time funding updates and strategic application insights</p>
+                </div>
+            </div>
+            
+            <div class="fade-in stagger-4" style="text-align: center; margin-top: 60px;">
+                <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-grant-connect">Get Started with Lift-Off</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Complete PLP Ecosystem Section -->
+    <section class="section engagement-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title fade-in">The Complete PLP Ecosystem</h2>
+                <p class="section-subtitle fade-in stagger-1">Taking courses is important, but Project Launchpad offers much more than just education.<br>The real power of your membership comes from leveraging the complete ecosystem: professional partnerships, ready-to-use templates, peer support, and expert guidance.</p>
+            </div>
+            
+            <div class="engagement-grid">
+                <div class="engagement-card fade-in stagger-1">
+                    <div class="engagement-icon">🤝</div>
+                    <h3 class="engagement-title">Community</h3>
+                    <p class="engagement-description">Connect with peers, share experiences, and build meaningful partnerships.</p>
+                    <ul class="engagement-list">
+                        <li>Peer learning roundtables</li>
+                        <li>Member forums & discussions</li>
+                        <li>Networking events</li>
+                        <li>Collaboration opportunities</li>
+                    </ul>
+                </div>
+
+                <div class="engagement-card fade-in stagger-2">
+                    <div class="engagement-icon">📖</div>
+                    <h3 class="engagement-title">Knowledge</h3>
+                    <p class="engagement-description">Access expert guidance, training, and resources when you need them.</p>
+                    <ul class="engagement-list">
+                        <li>On-demand training library</li>
+                        <li>Micro-consultations</li>
+                        <li>Webinars & workshops</li>
+                        <li>Best practices database</li>
+                    </ul>
+                </div>
+
+                <div class="engagement-card fade-in stagger-3">
+                    <div class="engagement-icon">📰</div>
+                    <h3 class="engagement-title">News</h3>
+                    <p class="engagement-description">Stay informed about sector trends, opportunities, and regulatory changes.</p>
+                    <ul class="engagement-list">
+                        <li>Sector updates & insights</li>
+                        <li>Funding opportunities</li>
+                        <li>Regulatory changes</li>
+                        <li>Success stories</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ecosystem-impact fade-in stagger-4">
+                <div class="impact-icon">🎯</div>
+                <div class="impact-text">
+                    <strong>The Bottom Line:</strong> Your $99/month membership isn't just courses—it's your entire capacity-building infrastructure. Professional partnerships. Ready-to-use tools. Expert guidance. Peer support. All working together to amplify your impact.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Outcomes Section -->
-    <section class="outcomes-section">
+    <!-- What Founding Members Are Saying Section -->
+    <section class="section testimonials-section">
         <div class="container">
-            <h2 class="section-title">6 Transformative Outcomes for Your Charity</h2>
-            <p class="section-subtitle">Project Launchpad equips you with everything needed to achieve these critical goals. <br> No more figuring it out alone.</p>
+            <div class="section-header">
+                <h2 class="section-title fade-in">What Founding Members Are Saying</h2>
+                <p class="section-subtitle fade-in stagger-1">Join 50+ Canadian charities already transforming their operations with Project Launchpad</p>
+            </div>
             
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <div class="outcome-icon">💰</div>
-                    <h3 class="outcome-title">Raise More Money, More Reliably</h3>
-                    <p class="outcome-description">Transform your fundraising with data-driven strategies, helpful templates, and campaigns that actually convert donors.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Annual fundraising calendars</li>
-                            <li>Grant-writing templates & toolkit</li>
-                            <li>Donor engagement strategies</li>
-                            <li>Imagine Canada Grant Connect access</li>
-                            <li>Campaign ROI & gift <br> matrix calculators</li>
-                        </ul>
+            <div class="testimonials-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="testimonial-card fade-in stagger-1">
+                    <p class="testimonial-text">"PLP isn't trying to sell us services we can't afford. They've done the heavy lifting - researching, vetting, and negotiating with providers who actually understand the charitable sector. It's like having a knowledgeable friend who's already figured out the best path forward."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Neil M. Leslie</h4>
+                            <p>Executive Director, Serenity Renewal for Families</p>
+                        </div>
                     </div>
                 </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">📣</div>
-                    <h3 class="outcome-title">Tell Your Story with Confidence</h3>
-                    <p class="outcome-description">Create compelling narratives with professional branding, polished visuals, and websites that convert interest into action.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Social media templates library</li>
-                            <li>Content creation guides</li>
-                            <li>Email marketing templates</li>
-                            <li>Brand messaging frameworks</li>
-                            <li>Website optimization checklists</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">⚡</div>
-                    <h3 class="outcome-title">Run Lean, Efficient Operations</h3>
-                    <p class="outcome-description">Slash administrative hours with plug-and-play tools, automated workflows, and systems that just work.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Project management templates</li>
-                            <li>Volunteer management systems</li>
-                            <li>AI-powered workflow tools</li>
-                            <li>Disaster & incident response <br>planning </li>
-                            <li>Operations & standard <br> operation procedure library</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">🔒</div>
-                    <h3 class="outcome-title">Stay Legally & Digitally Safe</h3>
-                    <p class="outcome-description">Protect your organization with vetted compliance resources, cybersecurity tools, and expert guidance on privacy laws.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Enhanced cybersecurity suite</li>
-                            <li>Risk assessment checklists</li>
-                            <li>PIPEDA compliance guides</li>
-                            <li>Policy templates library</li>
-                            <li>DNS filtering & email protection</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">📚</div>
-                    <h3 class="outcome-title">Keep Learning in One Place</h3>
-                    <p class="outcome-description">Access a constantly updated library of guides, trainings, and coaching—everything you need, when you need it.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Micro-consultations</li>
-                            <li>Webinars & townhalls</li>
-                            <li>On-demand training library</li>
-                            <li>Best practices database</li>
-                            <li>Expert Q&A sessions</li>
-                        </ul>
-                    </div>
-                </div>
-
                 
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">🚀</div>
-                    <h3 class="outcome-title">Scale Without Burning Out</h3>
-                    <p class="outcome-description">Access on-demand expertise and student volunteers for specialized projects, so your team can focus on mission-critical work.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Vetted expert network access</li>
-                            <li>Student volunteer pool</li>
-                            <li>Strategic planning guides</li>
-                            <li>Capacity building resources</li>
-                            <li>Peer learning roundtables</li>
-                        </ul>
+                <div class="testimonial-card fade-in stagger-2">
+                    <p class="testimonial-text">"We were pleased to contribute to the collaborative creation of Project Launchpad. This initiative has the potential to help strengthen the entire charitable sector and make it easier for smaller charities to access essential tools that will help them create success."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Rebecca Russell</h4>
+                            <p>Director of Development & Communications, OrKidstra</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- <div class="outcome-card">
-                    <div class="outcome-icon">📊</div>
-                    <h3 class="outcome-title">Make Data-Driven Decisions</h3>
-                    <p class="outcome-description">Use analytics and dashboards to understand what works, measure impact, and focus resources where they matter most.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Impact measurement templates</li>
-                            <li>Donor analytics guides</li>
-                            <li>Performance dashboards</li>
-                            <li>Sector benchmarking data</li>
-                            <li>ROI tracking tools</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">💚</div>
-                    <h3 class="outcome-title">Maximize Financial Health & Stability</h3>
-                    <p class="outcome-description">Strengthen your financial foundation and build long-term resilience with practical budgeting frameworks, cash flow management tools, and strategies to diversify revenue streams beyond traditional fundraising.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Budget planning templates</li>
-                            <li>Cash flow forecasting tools</li>
-                            <li>Revenue diversification resources</li>
-                            <li>Financial health assessment checklist</li>
-                            <li>Earned revenue opportunity guides</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="outcome-card">
-                    <div class="outcome-icon">🌐</div>
-                    <h3 class="outcome-title">Connect & Collaborate Strategically</h3>
-                    <p class="outcome-description">Join a thriving community ecosystem where charities break out of isolation, connect with peers facing similar challenges, and discover collaboration opportunities through PLP's vibrant community hub.</p>
-                    <div class="outcome-tools">
-                        <p class="tool-label">Tools & Resources Available to You:</p>
-                        <ul class="tool-list">
-                            <li>Interactive charity profile builder</li>
-                            <li>Community forums & discussion boards</li>
-                            <li>Opportunity marketplace (volunteers, partnerships, sponsors)</li>
-                            <li>Community event calendar & networking alerts</li>
-                            <li>Resource sharing library (member-contributed)</li>
-                        </ul>
-                    </div>
-                </div> -->
                 
+                <div class="testimonial-card fade-in stagger-3">
+                    <p class="testimonial-text">"This isn't just about individual organizations getting better tools. It's about strengthening the entire sector. When small charities have access to the same caliber of support as large institutions, we all win."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <h4>Kim Oastler</h4>
+                            <p>Executive Director, ALSO Ottawa</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Detailed Resources
-    <section class="resources-detail">
+
+    <!-- Ready to Join CTA -->
+    <section class="section cta-section">
         <div class="container">
-            <h2 class="section-title">Your Complete Toolkit Breakdown</h2>
-            <p class="section-subtitle">Every resource is carefully curated for smaller Canadian charities under $500K annually.</p>
-            
-            <div class="resource-category">
-                <h3 class="category-title">💰 Fundraising & Revenue Tools</h3>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <div class="resource-name">Annual Fundraising Calendar <span class="tier-badge free">Free</span></div>
-                        <div class="resource-description">12-month planning template with key giving dates, campaign ideas, and stewardship touchpoints.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Grant-Readiness Toolkit <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Complete package with templates, evaluation rubrics, budget builders, and successful application examples.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Imagine Canada Grant Connect <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Access to comprehensive database of private and public foundation grants (normally $1,200/year value).</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Donor Journey Mapping <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Visual workflows for moving donors from first gift to major donor status.</div>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title fade-in">Ready to amplify your impact?</h2>
+                <p class="section-subtitle fade-in stagger-1">Join the first 100 Canadian charities in our founding cohort. Early members lock in current pricing before rates adjust in Q2 2026.</p>
             </div>
-            
-            <div class="resource-category">
-                <h3 class="category-title">🔒 Cybersecurity & Compliance</h3>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <div class="resource-name">Security Hygiene Basics <span class="tier-badge free">Free</span></div>
-                        <div class="resource-description">Essential checklists for password management, device security, and safe online practices.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">CyberFox Security Suite <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Professional browser protection, phishing defense, and DNS filtering tools.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Risk Assessment Framework <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Comprehensive vulnerability scanning tools and remediation guides.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">PIPEDA Compliance Toolkit <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Privacy policies, consent forms, and data handling procedures for Canadian law.</div>
-                    </div>
-                </div>
+            <div class="fade-in stagger-2">
+                <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-white">Join the community</a>
+                <a href="http://projectlaunchpad.ca/joinplp" class="btn-outline-white">Learn More</a>
             </div>
-            
-            <div class="resource-category">
-                <h3 class="category-title">📱 Marketing & Communications</h3>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <div class="resource-name">Social Media Templates <span class="tier-badge free">Free</span></div>
-                        <div class="resource-description">Basic post templates for Facebook, Instagram, and LinkedIn.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Content Library Pro <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">1000+ customizable templates for all platforms, including Canva designs.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Campaign Builder <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Donor engagement sequences, newsletter templates, and campaign ROI & gift matrix calculators</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Communications & Branding <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Tap into PLP's resource that is practical, budget-friendly, and easy to implement even with limited staff and resources. </div>
-                    </div>
+            <div class="trust-badges fade-in stagger-3" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.25rem;">🔒</span>
+                    <span>No credit card required to start</span>
                 </div>
-            </div>
-            
-            <div class="resource-category">
-                <h3 class="category-title">👥 Expert Support & Community</h3>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <div class="resource-name">Quarterly Webinars <span class="tier-badge free">Free</span></div>
-                        <div class="resource-description">Public sessions on trending topics and sector challenges.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Micro-Consultations <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Personalized sessions with sector experts.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Peer Roundtables <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Small-group problem-solving with other charity leaders.</div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-name">Vetted Expert Network <span class="tier-badge premium">Premium</span></div>
-                        <div class="resource-description">Pre-qualified professionals at 15-25% reduced rates.</div>
-                    </div>
+                <div style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.25rem;">📧</span>
+                    <span>Cancel anytime, month-to-month</span>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.25rem;">🇨🇦</span>
+                    <span>Built exclusively for Canadian charities</span>
+                </div>
+                <div style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.25rem;">✅</span>
+                    <span>Validated by 6 founding member charities</span>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
-    <!-- Footer CTA -->
+
+     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <a href="https://telosone.typeform.com/to/A5Nst6iE"><div class="limited-spots">
-                <h3>Get Priority Access</h3>
-                <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
-            </div></a>
-            <p>Be first in line when Project Launchpad launches—unlock expert tools, exclusive savings, and practical resources designed to help your charity do more with less from day one.</p>
-            <div class="contact-info">
-                <p><strong>Connect With Us</strong></p>
-                <p>📧 <a href="mailto:hello@projectlaunchpad.ca">hello@projectlaunchpad.ca</a></p>
-                <p>👥 <a href="https://www.linkedin.com/company/projectlaunchpad/">LinkedIn</a></p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="img/plp_logo_white.png" alt="Project Launchpad" style="height: 50px; width: auto; margin-bottom: 16px;">
+                    </div>
+                    <p class="footer-description">Empowering smaller Canadian charities with the tools, expertise, and systems needed to amplify their impact.</p>
+                    <div class="footer-social">
+                        <a href="mailto:hello@projectlaunchpad.ca" aria-label="Email">📧</a>
+                        <a href="https://www.linkedin.com/company/projectlaunchpad/" aria-label="LinkedIn" target="_blank" rel="noopener">👥</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>About</h4>
+                    <ul class="footer-links">
+                        <li><a href="about/our-story.html">Our Story</a></li>
+                        <li><a href="about/meet-the-founders.html">Meet the Founders</a></li>
+                        <li><a href="about/plp-impact-network.html">Impact Network</a></li>
+                        <li><a href="about/fuel-our-mission.html">Fuel Our Mission</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="support/contact.html">Contact Us</a></li>
+                        <li><a href="support/faq.html">FAQ</a></li>
+                        <li><a href="support/help-centre.html">Help Centre</a></li>
+                        <li><a href="support/governance.html">Governance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="support/terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="support/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="support/data-security-policy.html">Data Security</a></li>
+                        <li><a href="support/code-of-conduct.html">Code of Conduct</a></li>
+                    </ul>
+                </div>
             </div>
-            <p class="contact-info-b" style="margin-top: 30px; opacity: 0.8;">
-                Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/">Harmonia Philanthropy</a> and <a href="https://telos.one/">Telos One</a><br>
-                Built for impact, not profit. Designed exclusively for Canada's smaller charities.
-            </p>
+
+            <div class="footer-bottom">
+                <p>Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/" target="_blank" rel="noopener">Harmonia Philanthropy</a> and <a href="https://telos.one/" target="_blank" rel="noopener">Telos One</a></p>
+                <p>Built for impact, not profit. Designed exclusively for Canada's smaller charities.</p>
+                <p class="footer-copyright">&copy; 2025 Project Launchpad. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        // Rolling counter animation function
+        function animateRollingCounter(element) {
+            const target = parseFloat(element.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 100;
+            const duration = 2000;
+            const stepTime = duration / 100;
+
+            function updateCounter() {
+                if (current < target) {
+                    current += increment;
+                    if (current > target) current = target;
+                    
+                    if (target >= 100) {
+                        element.textContent = Math.floor(current) + 'k';
+                    } else if (target < 10) {
+                        element.textContent = current.toFixed(2);
+                    } else {
+                        element.textContent = Math.floor(current) + '%';
+                    }
+                    
+                    setTimeout(updateCounter, stepTime);
+                }
+            }
+            
+            updateCounter();
+        }
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    
+                    // Trigger rolling counter animation
+                    if (entry.target.classList.contains('rolling-counter')) {
+                        animateRollingCounter(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .slide-left, .slide-right, .scale-up, .rolling-counter');
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Video play button functionality
+        document.querySelectorAll('.play-button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Video would play here! This could be a demo of your dashboard or community in action.');
+            });
+        });
+
+        // Newsletter subscription functionality
+        document.querySelector('.btn-subscribe')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const emailInput = document.querySelector('.email-input');
+            const email = emailInput.value.trim();
+            
+            if (!email) {
+                alert('Please enter your email address.');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Simulate subscription
+            this.innerHTML = 'Subscribing...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for subscribing to Project Launchpad updates!');
+                emailInput.value = '';
+                this.innerHTML = 'Subscribe Now';
+                this.disabled = false;
+            }, 1000);
+        });
+
+        // Email validation function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Handle Enter key in email input
+        document.querySelector('.email-input')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.querySelector('.btn-subscribe').click();
+            }
+        });
+
+        // Trigger initial animations for elements in viewport
+        window.addEventListener('load', () => {
+            const heroElements = document.querySelectorAll('.video-hero .fade-in');
+            heroElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate');
+                }, index * 200);
+            });
+        });
+
+        // Sneak Preview Section JavaScript
+        document.querySelectorAll('.preview-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.preview-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.querySelectorAll('.preview-panel').forEach(p => p.classList.remove('active'));
+                document.getElementById(this.getAttribute('data-tab')).classList.add('active');
+                const panel = document.getElementById(this.getAttribute('data-tab'));
+                panel.querySelectorAll('.preview-slide').forEach((s,i) => { s.classList.remove('active'); if(i===0) s.classList.add('active'); });
+                panel.querySelectorAll('.dot').forEach((d,i) => { d.classList.remove('active'); if(i===0) d.classList.add('active'); });
+            });
+        });
+
+        document.querySelectorAll('.preview-panel').forEach(panel => {
+            const slides = panel.querySelectorAll('.preview-slide');
+            const dots = panel.querySelectorAll('.dot');
+            const prev = panel.querySelector('.carousel-prev');
+            const next = panel.querySelector('.carousel-next');
+            let current = 0;
+            
+            function show(i) {
+                slides.forEach(s => s.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                slides[i].classList.add('active');
+                dots[i].classList.add('active');
+                current = i;
+            }
+            
+            prev.addEventListener('click', () => show(current === 0 ? slides.length - 1 : current - 1));
+            next.addEventListener('click', () => show((current + 1) % slides.length));
+            dots.forEach((dot, i) => dot.addEventListener('click', () => show(i)));
+        });
+
+        // Toggle tools and resources function
+        function toggleTools(button) {
+            const card = button.closest('.outcome-card');
+            const toolsDiv = card.querySelector('.outcome-tools');
+            
+            if (toolsDiv.style.display === 'none') {
+                toolsDiv.style.display = 'block';
+                button.textContent = 'Hide Tools & Resources ▲';
+                button.classList.add('active');
+            } else {
+                toolsDiv.style.display = 'none';
+                button.textContent = 'View Tools & Resources ▼';
+                button.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 </html>

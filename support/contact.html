@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            padding: 20px 0;
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #8c52ff;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #8c52ff 0%, #ff5757 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #8c52ff;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            min-width: 200px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            z-index: 1000;
+            top: 100%;
+            left: 0;
+            padding: 8px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #4b5563;
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f8fafc;
+            color: #8c52ff;
+        }
+
+        .dropdown > a:after {
+            content: "▼";
+            font-size: 10px;
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+
+        .dropdown:hover > a:after {
+            transform: rotate(180deg);
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: #8c52ff;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #7a47e6;
+            transform: translateY(-1px);
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #6b7280;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-login:hover {
+            border-color: #8c52ff;
+            color: #8c52ff;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1f2937;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 40px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1.125rem;
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .contact-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.15);
+            border-color: #8c52ff;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .contact-card p {
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-card a {
+            color: #8c52ff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .contact-card a:hover {
+            color: #7a47e6;
+            text-decoration: underline;
+        }
+
+        .form-section {
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #8c52ff;
+            box-shadow: 0 0 0 3px rgba(140, 82, 255, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #8c52ff;
+            color: white;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: #7a47e6;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.3);
+        }
+
+        .office-hours {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #8c52ff;
+            margin: 30px 0;
+        }
+
+        .office-hours h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+
+        .office-hours p {
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .limited-spots {
+            background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .limited-spots h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .spots-remaining {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+        }
+
+        .contact-info a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info-b a {
+            color: #8b5cf6;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 30px 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <img src="/favicon.png" style="width: 40px; border-radius: 8px;"></img>
+                    <span>Project Launchpad</span>
+                </a>
+                <div class="nav-center">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="../joinplp.html">JOIN PLP</a></li>
+                        <li class="dropdown">
+                            <a href="../about.html">ABOUT</a>
+                            <div class="dropdown-content">
+                                <a href="../about/our-story.html">Our Story/Mission</a>
+                                <a href="../about/meet-the-founders.html">Meet the Founders</a>
+                                <a href="../about/plp-impact-network.html">PLP Impact Network</a>
+                                <a href="../about/fuel-our-mission.html">Fuel Our Mission</a>
+                            </div>
+                        </li>
+                        <li class="dropdown">
+                            <a href="../support.html">SUPPORT</a>
+                            <div class="dropdown-content">
+                                <a href="../support/contact.html">Contact</a>
+                                <a href="../support/faq.html">FAQ</a>
+                                <a href="../support/help-centre.html">Help Centre</a>
+                                <a href="../supportgovernance.html">Governance</a>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="header-buttons">
+                    <a href="https://portal.projectlaunchpad.ca/wp-login.php" class="btn-login">Login</a>
+                    <a href="../joinplp.html" class="btn-primary">Join PLP</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Content Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h1>Contact Us</h1>
+                
+                <p class="intro-text">
+                    We're here to help! Whether you have questions about membership, need support, or want to explore partnership opportunities, we'd love to hear from you.
+                </p>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <span class="contact-icon">📧</span>
+                        <h3>General Inquiries</h3>
+                        <p>Questions about Project Launchpad?</p>
+                        <a href="mailto:hello@projectlaunchpad.ca">hello@projectlaunchpad.ca</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <span class="contact-icon">🤝</span>
+                        <h3>Partnership Opportunities</h3>
+                        <p>Interested in joining our network?</p>
+                        <a href="mailto:partners@projectlaunchpad.ca">partners@projectlaunchpad.ca</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <span class="contact-icon">💼</span>
+                        <h3>Membership Support</h3>
+                        <p>Need help with your membership?</p>
+                        <a href="mailto:support@projectlaunchpad.ca">support@projectlaunchpad.ca</a>
+                    </div>
+                </div>
+
+                <div class="office-hours">
+                    <h3>Response Times</h3>
+                    <p><strong>Email Inquiries:</strong> We typically respond within 1-2 business days</p>
+                    <p><strong>Member Support:</strong> Priority response within 24 hours for Lift-Off Tier members</p>
+                    <p><strong>Partnership Inquiries:</strong> We'll get back to you within 3-5 business days</p>
+                </div>
+
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                <div class="form-section">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" name="organization">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="membership">Membership Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+
+                <h2>Connect With Us</h2>
+                <p>
+                    Follow us on social media to stay updated on the latest news, resources, and opportunities from Project Launchpad.
+                </p>
+                <p style="text-align: center; margin-top: 30px;">
+                    <a href="https://www.linkedin.com/company/projectlaunchpad/" style="color: #8c52ff; text-decoration: none; font-weight: 600; font-size: 1.125rem;">
+                        👥 Follow us on LinkedIn
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://telosone.typeform.com/to/A5Nst6iE" style="text-decoration: none;">
+                <div class="limited-spots">
+                    <h3>Get Priority Access</h3>
+                    <span class="spots-remaining">Fall 2025 Launch: <br> Join the Waitlist</span>
+                </div>
+            </a>
+            <p>Be first in line when Project Launchpad launches—unlock expert tools, exclusive savings, and practical resources designed to help your charity do more with less from day one.</p>
+            <div class="contact-info">
+                <p><strong>Connect With Us</strong></p>
+                <p>📧 <a href="mailto:hello@projectlaunchpad.ca">hello@projectlaunchpad.ca</a></p>
+                <p>👥 <a href="https://www.linkedin.com/company/projectlaunchpad/">LinkedIn</a></p>
+            </div>
+            <p class="contact-info-b" style="margin-top: 30px; opacity: 0.8;">
+                Project Launchpad is a collaboration between <a href="https://harmoniaphilanthropy.ca/">Harmonia Philanthropy</a> and <a href="https://telos.one/">Telos One</a><br>
+                Built for impact, not profit. Designed exclusively for Canada's smaller charities.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We\'ll get back to you soon.\n\nNote: This is a demo form. In production, this would send your message to our team.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
