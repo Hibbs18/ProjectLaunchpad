@@ -245,6 +245,13 @@
             color: #8c52ff;
         }
 
+        /* Hide burger menu on desktop */
+        @media (min-width: 769px) {
+            .mobile-menu-toggle {
+                display: none !important;
+            }
+        }
+
         /* PRIMARY BUTTONS - Most important actions (Join/Sign Up) */
         .btn-primary {
             background: var(--gradient-accent);
