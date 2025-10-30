@@ -1927,7 +1927,7 @@
             .nav-links {
                 padding-left: max(20px, env(safe-area-inset-left));
                 padding-right: max(20px, env(safe-area-inset-right));
-                padding-bottom: max(20px, env(safe-area-inset-bottom));
+                /* padding-bottom: max(20px, env(safe-area-inset-bottom)); */
             }
             
             .footer {
