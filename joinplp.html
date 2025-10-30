@@ -1,6 +1,12 @@
- <!DOCTYPE html>
- <link rel="stylesheet" href="styles.css">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join PLP - Project Launchpad</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
  <style>
@@ -639,6 +645,7 @@
                 <a href="project-launchpad-updated.html" class="logo">
                     <img src="img/plp_logo.png" style="height: 50px; width: auto;"></img>
                 </a>
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false">☰</button>
                 <div class="nav-center">
                     <ul class="nav-links">
                         <li><a href="index.html">HOME</a></li>
@@ -1183,5 +1190,6 @@
             animatedElements.forEach(el => observer.observe(el));
         });
     </script>
+    <script src="mobile-nav.js"></script>
 </body>
 </html>
