@@ -16,6 +16,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -359,6 +363,44 @@
             text-decoration: underline;
         }
 
+        /* Section Navigation */
+        .section-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin: 30px 0 40px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .section-nav-btn {
+            background: white;
+            color: #6b7280;
+            padding: 12px 24px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .section-nav-btn:hover {
+            background: #8c52ff;
+            color: white;
+            border-color: #8c52ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(140, 82, 255, 0.3);
+        }
+
+        .section-nav-btn:active {
+            transform: translateY(0);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -370,6 +412,108 @@
 
             .content-wrapper {
                 padding: 30px 20px;
+            }
+
+            .section-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Partner Grid */
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .partner-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .partner-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(140, 82, 255, 0.15);
+            border-color: #8c52ff;
+        }
+
+        .partner-logo {
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .partner-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 12px;
+        }
+
+        .partner-description {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .partner-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                padding: 30px 20px;
+            }
+
+            .section-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .section-nav-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .partner-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
     </style>
@@ -423,59 +567,192 @@
                 <h1>PLP Impact Network</h1>
                 
                 <p class="intro-text">
-                    Your gateway to trusted experts, service providers, and strategic partners committed to empowering smaller Canadian charities.
+                    Trusted experts, service providers, and strategic partners committed to empowering smaller Canadian charities and non-profits.
                 </p>
 
                 <p>
                     The PLP Impact Network is our carefully curated ecosystem of vetted professionals who share our commitment to making high-quality support accessible to smaller charities. Every partner in our network understands the unique challenges you face and is committed to providing exceptional value at nonprofit-friendly rates.
                 </p>
 
-                <h2>Our Network Partners</h2>
+                <h2 id="our-network">Our Network</h2>
 
-                <div class="network-card">
-                    <h3>🎯 Expert Consultants</h3>
-                    <p>
-                        Access specialists across fundraising, governance, communications, technology, and strategic planning—all experienced in working with smaller organizations. Our consultants offer micro-consultations, project-based support, and ongoing advisory services tailored to your budget and needs.
-                    </p>
+                <!-- Section Navigation -->
+                <div class="section-nav">
+                    <a href="#founding-members" class="section-nav-btn">Founding Members</a>
+                    <a href="#sector-allies" class="section-nav-btn">Sector Allies</a>
+                    <a href="#sponsors" class="section-nav-btn">Sponsors</a>
+                    <a href="#valued-partners" class="section-nav-btn">Valued Partners</a>
+                </div>
+                
+                <h2 id="founding-members">Founding Members</h2>
+
+                <!-- Partner Grid -->
+                <div class="partner-grid">
+
+                    <a href="https://www.also-ottawa.org/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/also_id_col-pdf.png" alt="ALSO Ottawa" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>AO</div>'">
+                        </div>
+                        <h3 class="partner-name">ALSO Ottawa</h3>
+                        <p class="partner-description">Alternative Learning Styles and Outlooks (ALSO) has been serving Ottawa adults and families since 1981. We take pride in being a small program that achieves great things. We offer support to adults who may not feel they fit into more mainstream programs by offering a flexible, person-centred approach to learning and skill development.</p>
+                    </div></a>
+
+                    <a href="https://bfo-ottawa.org/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/bfo ottawa.png" alt="Bereaved Families of Ontario - Ottawa" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>BF</div>'">
+                        </div>
+                        <h3 class="partner-name">Bereaved Families of Ontario - Ottawa</h3>
+                        <p class="partner-description">BFO is Ottawa’s leading non-profit charity offering loss-specific peer support, we help families and individuals grappling with grief and bereavement. BFO Ottawa has helped over 3,000 people in Ottawa annually through its 300 support programs, all led by trained volunteer facilitators. <br><br><br></p>
+                    </div></a>
+
+                    <a href="https://orkidstra.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/orkidstra_logo2017_rgb_vert_lrg.png" alt="OrKidstra" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>OK</div>'">
+                        </div>
+                        <h3 class="partner-name">OrKidstra</h3>
+                        <p class="partner-description">OrKidstra is an Ottawa-based charitable social development program that empowers kids from equity-deserving communities by teaching life skills through singing and playing music together. OrKidstra began in 2007 with 27 children; today it has grown to include over 750 children and youth from 62 cultural and linguistic backgrounds.</p>
+                    </div></a>
+
+                    <a href="https://rocenakidneyfoundation.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/rocena .png" alt="Rocena Kidney Foundation" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>RK</div>'">
+                        </div>
+                        <h3 class="partner-name">Rocena Kidney Foundation</h3>
+                        <p class="partner-description">Founded to serve the Black and African-Caribbean community in Ottawa, the Rocena Kidney Foundation is dedicated to improving kidney health and quality of life for individuals affected by kidney disease.The Foundation delivers quarterly awareness sessions led by health professionals, bi-monthly peer support groups, and culturally competent outreach programs.</p>
+                    </div></a>
+
+                    <a href="https://www.serenityrenewal.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/serenity_color_vertical-no-bg-e1652814184453.png" alt="Serenity Renewal For Families" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>SR</div>'">
+                        </div>
+                        <h3 class="partner-name">Serenity Renewal For Families</h3>
+                        <p class="partner-description">Serenity Renewal for Families is dedicated to providing hope and support to individuals and families affected by addiction and related issues. Our mission is to foster happier, healthier lives through short-term counselling, adult educational workshops, and programs in a safe environment. Serenity Renewal has impacted over 100,000 individuals in Ottawa and surrounding areas, serving more than 2,000 people annually.</p>
+                    </div></a>
+
+                    <a href="https://watersheds.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/watersheds-canada-pos-horizontal-rgb.png" alt="Watersheds Canada" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>WC</div>'">
+                        </div>
+                        <h3 class="partner-name">Watersheds Canada</h3>
+                        <p class="partner-description">Founded in 2002, Watersheds Canada is federally incorporated non-profit and registered charity with a mandate to help local organizations, volunteers and waterfront property owners deliver freshwater stewardship and education programs in their community. We have saved over 40km of degraded shorelines, completed 55 fish habitat projects on 35 water bodies, and planted over 155,000 native plants.</p>
+                    </div></a>
+
                 </div>
 
-                <div class="network-card">
-                    <h3>💼 Service Providers</h3>
-                    <p>
-                        From accounting firms to web developers, graphic designers to legal advisors, our network includes businesses that offer quality services tailored to charitable budgets. Many provide special rates for PLP members, making professional services more accessible than ever.
-                    </p>
+                <h2 id="sector-allies">Sector Allies</h2>
+
+                <!-- Partner Grid -->
+                <div class="partner-grid">
+
+                    <a href="https://harmoniaphilanthropy.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/harmonia_logo.png" alt="harmoniaphilanthropy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>AO</div>'">
+                        </div>
+                        <h3 class="partner-name">Harmonia Philanthropy</h3>
+                        <p class="partner-description">Philanthropic consulting guided by empowering smaller charities to strengthen capacity and foster a vibrant charitable ecosystem. Strategic fundraising support, advisor partnerships, and corporate philanthropy services - now amplified through Project Launchpad. <br><br></p>
+                    </div></a>
+
+                    <a href="https://hilborn-charityenews.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/hillborn (2).png" alt="hillborn" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>BF</div>'">
+                        </div>
+                        <h3 class="partner-name">Hillborn Charity e-News</h3>
+                        <p class="partner-description">Hilborn has supported nonprofit leaders since 1991 through Hilborn Charity eNews, offering practical insight on fundraising and management. Its services include Key-To-The-Sector events, Civil Sector Press publishing, and the Canadian Nonprofit Employer of Choice Award.</p>
+                    </div></a>
+
+                    <a href="https://imaginecanada.ca/en"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/imagine_logo.png" alt="imaginecanada" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>OK</div>'">
+                        </div>
+                        <h3 class="partner-name">Imagine Canada</h3>
+                        <p class="partner-description">Canada's leading charity strengthening the charitable and nonprofit sector through research, standards programs, advocacy, and resources like Grant Connect - providing access to thousands of funding opportunities for smaller organizations. <br><br><br><br></p>
+                    </div></a>
+
+                    <a href="https://mcgillbuckley.com/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/mcgill_logo.png" alt="mcgillbuckley" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>RK</div>'">
+                        </div>
+                        <h3 class="partner-name">McGill Buckley</h3>
+                        <p class="partner-description"><br><br>McGill Buckley is a boutique marketing and branding company fueled by strategy and creativity and passionate about non-profits. <br><br><br><br><br></p>
+                    </div></a>
+
+                    <a href="https://telos.one/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/telosone_logo.png" alt="telosone" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>SR</div>'">
+                        </div>
+                        <h3 class="partner-name">Telos One</h3>
+                        <p class="partner-description">User-friendly, data-driven technology solutions including payment processing, web development, and consulting. Helping mission-oriented organizations streamline operations, engage stakeholders, and leverage insights for sustainable growth.</p>
+                    </div></a>
+
+                    <a href="https://www.fundraisinglab.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/fundraisinglab_logo.webp" alt="thefundraisinglab" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>WC</div>'">
+                        </div>
+                        <h3 class="partner-name">The Fundraising Lab</h3>
+                        <p class="partner-description">Strategic fundraising consulting that helps scrappy charities scale from $200K to $2M in philanthropy. Building fundraising architecture - not magic - through strategy, structure, and storytelling from decades of front-line experience.<br></p>
+                    </div></a>
+
+                    <a href="https://virtualworks.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/virtualworks_logo(2).png" alt="VirtualWorks" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>SR</div>'">
+                        </div>
+                        <h3 class="partner-name">Virtual Works Inc.</h3>
+                        <p class="partner-description">Remote secretariat and administrative support services for nonprofits and associations. Customized full-time or as-needed back-office solutions at a fraction of traditional costs— with 21 years of expertise.<br><br><br></p>
+                    </div></a>
+
+                    <a href="https://www.writeworks.ca/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/writeworks(2).png" alt="WriteWorks" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>WC</div>'">
+                        </div>
+                        <h3 class="partner-name">WriteWorks</h3>
+                        <p class="partner-description">WriteWorks helps organizations secure funding and contracts by providing expert grant writing, proposal development, and proposal management, increasing clients’ competitiveness and capacity to deliver their missions.</p>
+                    </div></a>
+
                 </div>
 
-                <div class="network-card">
-                    <h3>💻 Technology Partners</h3>
-                    <p>
-                        We partner with leading platforms and tools that provide discounted or donated services to charities. Access enterprise-level solutions for donor management, project tracking, communications, and more—at prices that fit your budget.
-                    </p>
+                <h2 id="sponsors">Sponsors</h2>
+
+                <div class="partner-grid">
+
+                    <a href="https://controld.com/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/controlD.png" alt="Control D" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>AO</div>'">
+                        </div>
+                        <h3 class="partner-name">Control D</h3>
+                        <p class="partner-description">DNS-level security and content filtering that blocks threats before they reach your network. Simple, affordable protection against malware, phishing, and malicious sites - designed for organizations that can't afford enterprise-level cybersecurity.<br><br><br><br></p>
+                    </div></a>
+
+                    <a href="https://www.salytics.com/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/salytics_logo.png" alt="Salytics" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>BF</div>'">
+                        </div>
+                        <h3 class="partner-name">Salytics</h3>
+                        <p class="partner-description">Founded in 2011, Salytics is a Toronto-based consulting firm specializing in Salesforce Consulting & Solutions. We are distinguished by our unwavering commitment to responsive support, deep product knowledge, and success delivering integrated systems that bridge people, process, and technology.</p>
+                    </div></a>
+
                 </div>
 
-                <div class="network-card">
-                    <h3>🎓 Educational Institutions</h3>
-                    <p>
-                        Through partnerships with colleges and universities, we connect charities with student talent for projects, research, and capacity-building initiatives. Benefit from fresh perspectives and enthusiastic support while providing valuable learning opportunities.
-                    </p>
-                </div>
+                <h2 id="valued-partners">Valued Partners</h2>
 
-                <h2>How the Network Works</h2>
+                <div class="partner-grid">
+
+                    <a href="https://www.zeffy.com/"><div class="partner-card">
+                        <div class="partner-logo">
+                            <img src="../img/logos/zeffy-logo.png" alt="Zeffy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'font-size: 3rem; color: #8c52ff;\'>AO</div>'">
+                        </div>
+                        <h3 class="partner-name">Zeffy</h3>
+                        <p class="partner-description">Zeffy is the only 100% zero-fee fundraising platform, trusted by more than 50,000 nonprofits across North America. Since 2017, Zeffy has helped nonprofits raise more than $1 billion while saving over $50 million in fees. As a Certified B Corporation, Zeffy upholds the highest standards of social and environmental impact, making fee-free fundraising sustainable for the long term. </p>
+                    </div></a>
+
+                </div>
+                
+
+                <h2 id="how-it-works">How the Network Works</h2>
                 <p>
                     Every partner in our network is vetted for quality, reliability, and alignment with our mission. We don't just create a directory—we facilitate meaningful connections that drive results.
                 </p>
 
-                <h3>For Lift-Off Tier Members:</h3>
-                <div class="benefits-list">
-                    <p>Pre-negotiated rates and special discounts exclusive to PLP members</p>
-                    <p>Warm introductions and facilitated connections to the right experts</p>
-                    <p>Quality assurance and accountability through our vetting process</p>
-                    <p>Ongoing support and relationship management</p>
-                    <p>Priority access to new partners as they join the network</p>
-                    <p>Feedback mechanisms to ensure partner quality</p>
-                </div>
-
-                <h2>Our Vetting Process</h2>
+                <h2 id="vetting-process">Our Vetting Process</h2>
                 <p>
                     We take partner selection seriously. Every organization or individual in our network must demonstrate:
                 </p>
@@ -503,7 +780,7 @@
                     <a href="mailto:partners@projectlaunchpad.ca">Contact Us About Partnership</a>
                 </div>
 
-                <h2>Success Stories</h2>
+                <h2 id="success-stories">Success Stories</h2>
                 <p>
                     Our network partners are already making a difference. From helping charities secure major grants to implementing new donor management systems, from refreshing brand identities to providing strategic planning support—the PLP Impact Network is where expertise meets impact.
                 </p>
