@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Close menu when clicking outside
+    // Close menu when clicking outside the links
     document.addEventListener('click', function(e) {
         if (navLinks && navLinks.classList.contains('active')) {
             if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
