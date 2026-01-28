@@ -351,17 +351,29 @@
         }
 
         /* Auto-scrolling Partners */
+
         .partners-section {
             padding: 60px 0;
             background: #ffffff;
             overflow: hidden;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            /*  */
         }
+        
 
         .partners-scroll {
-            white-space: nowrap;
-            animation: scroll 40s linear infinite;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: infiniteScroll 15s linear infinite;
         }
+
+        @keyframes infiniteScroll {
+            from {transform: translate(94%)} /* where it will go Will change if you add more logos */
+            to {transform: translate(-100%)} /* how far until you want it loop KEEP THIS THE SAME ONLY CHANGE THE TOP VALUE*/
+        }  
 
         .partner-logo {
             display: inline-block;
@@ -1851,26 +1863,33 @@
     <section class="partners-section">
         <div class="container">
             <h2 class="partners-title">Our Impact Network</h2>
+            <div class="carousel">
+
+
+
+
             <div class="partners-scroll">
-                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
-                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
-                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
-                <img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img">
-                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
-                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
-                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
-                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
-                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <div><img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img"></div>
+                <div><img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img"></div>
+                <div><img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img"></div>
+                <div><img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img"></div>
+                <div><img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img"></div>
+                <div><img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img"></div>
+                <div><img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img"></div>
+                <div><img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img"></div>
+                <div><img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img"></div>
                 <!-- Duplicate for seamless loop -->
-                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
-                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
-                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
-                <img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img">
-                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
-                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
-                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
-                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
-                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <div><img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img"></div>
+                <div><img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img"></div>
+                <div><img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img"></div>
+                <div><img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img"></div>
+                <div><img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img"></div>
+                <div><img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img"></div>
+                <div><img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img"></div>
+                <div><img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img"></div>
+                <div><img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img"></div>
+
+            </div>
             </div>
             <div class="partners-cta">
                 <a href="about/plp-impact-network.html" class="btn-primary">Learn More</a>
@@ -1901,9 +1920,10 @@
                     <p class="value-description">We find, vet, and simplify opportunities for you</p>
                 </div>
                 
-                <div class="value-card fade-in stagger-3">
+                <div class="value-card fade-in stagger-3" style="border: 3px solid #f59e0b; background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #f59e0b, #fbbf24); color: white; padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">LIFT-OFF EXCLUSIVE</div>
                     <div class="value-icon">🤝</div>
-                    <div class="value-number">9</div>
+                    <div class="value-number" style="color: #f59e0b;">9</div>
                     <div class="value-title">Sector Allies</div>
                     <p class="value-description">Access discounted services from vetted professionals who understand small charity budgets</p>
                 </div>
@@ -1941,7 +1961,7 @@
                 <div class="step-card fade-in stagger-2">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Access Your Resources</h3>
-                    <p class="step-description">Tools, templates, AI generators, expert guidance—all in one place</p>
+                    <p class="step-description">Tools, templates, expert guidance—all in one place</p>
                 </div>
                 
                 <div class="step-arrow fade-in stagger-3">→</div>
@@ -1960,7 +1980,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title fade-in">Choose Your Launchpad</h2>
-                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities.</p>
+                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities <span style="color: #22c55e;">and nonprofits.</span></p>
             </div>
             
             <div class="membership-grid">
@@ -2065,38 +2085,10 @@
                                 <span class="slide-badge">New courses added regularly</span>
                             </div>
                         </div>
-
-                        <div class="preview-slide" data-slide="1">
-                            <div class="slide-content">
-                                <h3>AI Campaign-in-a-Box</h3>
-                                <p>Generate complete monthly campaigns in 60 seconds—email copy, social posts, poster text.</p>
-                                <ul class="feature-checklist">
-                                    <li>4 weeks of social media posts (FB, IG, LinkedIn)</li>
-                                    <li>Complete email sequence with subject lines</li>
-                                    <li>Poster/graphic copy with compliance notes</li>
-                                    <li>Call-to-action variations</li>
-                                    <li>Export as Word doc or copy-paste directly</li>
-                                </ul>
-                                <span class="slide-badge">Saves 8-10 hours per campaign</span>
-                            </div>
-                        </div>
-
-                        <div class="preview-slide" data-slide="2">
-                            <div class="slide-content">
-                                <h3>18+ Training Courses</h3>
-                                <p>From fundraising fundamentals to cybersecurity essentials—all Canadian-focused.</p>
-                                <ul class="feature-checklist">
-                                    <li>Fundraising & Development</li>
-                                    <li>Marketing & Communications</li>
-                                    <li>Operations & Governance</li>
-                                    <li>Technology & Security</li>
-                                    <li>Compliance & Legal</li>
-                                </ul>
-                                <span class="slide-badge">New courses added monthly</span>
-                            </div>
-                        </div>
                     </div>
-                    <div class="carousel-controls">
+
+                    <!-- In case we want to add more slides to the frameworks and training panel in the future -->
+                    <div class="carousel-controls" style="display: none;">
                         <button class="carousel-prev">‹</button>
                         <div class="carousel-dots">
                             <span class="dot active" data-slide="0"></span>
@@ -2105,6 +2097,7 @@
                         </div>
                         <button class="carousel-next">›</button>
                     </div>
+
                 </div>
 
                 <!-- PANEL 2: Tools -->
@@ -2113,11 +2106,10 @@
                         
                         <div class="preview-slide active" data-slide="0">
                             <div class="slide-content">
-                                <h3>50+ Templates and Tools (and growing)</h3>
+                                <h3>30+ Templates and Tools (and growing)</h3>
                                 <p>Powerful, practical resources designed specifically for smaller Canadian charities.</p>
                                 <ul class="feature-checklist">
                                     <li><strong>Gift Planning Matrix</strong> - Strategic donor cultivation and major gift planning</li>
-                                    <li><strong>Cyber Readiness Checklist</strong> - Assess and improve your organization's security posture</li>
                                     <li><strong>Policy Document Templates</strong> - Essential governance and operational policies</li>
                                     <li><strong>Budget Calculators & Financial Tools</strong> - Streamline financial planning and reporting</li>
                                     <li><strong>Consolidated Resource Hub</strong> - One-stop access to vetted free resources across all categories</li>
@@ -2128,7 +2120,7 @@
 
                         <div class="preview-slide" data-slide="1">
                             <div class="slide-content">
-                                <h3>🎯 Grant Connect Access</h3>
+                                <h3>🎯 Grant Connect - Community Edition Access</h3>
                                 <p><strong>Average $624/year value.</strong> Included FREE with Lift-Off membership.</p>
 </search_and_replace>
                                 <ul class="feature-checklist">
@@ -2136,7 +2128,7 @@
                                     <li>Search by region, cause, funding amount</li>
                                     <li>Automated deadline notifications</li>
                                     <li>Track applications and submissions</li>
-                                    <li>Powered by Imagine Canada</li>
+                                    <li>Powered by Imagine Canada & Salytics</li>
                                 </ul>
                                 <span class="slide-badge highlight">🏆 Most Valuable Benefit</span>
                             </div>
