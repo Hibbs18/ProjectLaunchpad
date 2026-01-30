@@ -870,18 +870,21 @@
     </section>
 
      <!-- Membership Comparison -->
-    <section class="comparison-section" id="membership">
+        <section class="section membership-section" id="membership-comparison" style="padding-top: 100px;">
         <div class="container">
-            <h2 class="section-title">Choose Your Launchpad</h2>
-            <p class="section-subtitle">Start free or unlock full potential—both designed exclusively for smaller Canadian charities.</p>
+            <div class="section-header">
+                <h2 class="section-title fade-in">Choose Your Launchpad</h2>
+                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities <span style="color: #22c55e;">and nonprofits.</span></p>
+            </div>
             
             <div class="membership-grid">
-                <div class="membership-card">
-                    <h3 class="plan-name">Launchpad Lite</h3>
-                    <div class="plan-price">Free <span class="period">forever</span></div>
-                    <div class="plan-value">Essential resources to get started</div>
+                <div class="membership-card fade-in stagger-1">
+                    <div class="membership-badge" style="background: #6b7280;">Membership</div>
+                    <h3 class="membership-title">Launchpad Lite</h3>
+                    <h3 class="membership-title" style="color: #8c52ff; font-size: 2rem;">Free <span style="color: grey; font-size: 1rem;">forever</span></h3>
+                    <p class="membership-description">Essential resources to get started</p>
                     
-                    <ul class="feature-list">
+                    <ul class="membership-features">
                         <li>Basic fundraising calendar & templates</li>
                         <li>Security hygiene tips & basics</li>
                         <li>Policy template library</li>
@@ -892,30 +895,47 @@
                         <li>CRA compliance guides</li>
                     </ul>
                     
-                     <a href="https://portal.projectlaunchpad.ca/sign-up"><button class="join-button free">Get Started</button></a>
+                    <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary" style="width: 100%; text-align: center; display: block;">Get Started</a>
                 </div>
                 
-                <div class="membership-card premium">
-                    <h3 class="plan-name">Lift-Off Tier</h3>
-                    <div class="plan-price">$99 <span class="period">/month</span></div>
-                    <div class="plan-value">$5,000+ annual value unlocked</div>
+                <div class="membership-card featured fade-in stagger-2">
+                    <div class="membership-badge">Membership</div>
+                    <h3 class="membership-title">Lift-Off Tier</h3>
+                    <h3 class="membership-title" style="color: #8c52ff; font-size: 2rem;">$99 <span style="color: grey; font-size: 1rem;">/month</span></h3>
+                    <p class="membership-description" style="color: #22c55e; font-weight: 600; font-size: 1.125rem;">$5,000+ annual value unlocked</p>
                     
-                    <ul class="feature-list">
-                        <li><strong>Everything in Launchpad Lite plus:</strong></li>
-                        <li class="highlight">Micro-consultations</li>
-                        <li class="highlight">Advanced toolkits & templates</li>
-                        <li class="highlight">Grant-readiness toolkit</li>
-                        <li class="highlight">Disaster & incident response planning</li>
-                        <li class="highlight">Risk assessment tools</li>
-                        <li class="highlight">Imagine Canada's Grant Connect - Community Edition</li>
-                        <li class="highlight">Subsidized access to multi-discipline vetted experts</li>
-                        <li class="highlight">Priority webinar access</li>
-                        <li class="highlight">Small-group coaching</li>
-                        <li class="highlight">Student volunteer pool</li>
+                    <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-bottom: 24px; border-left: 4px solid #f59e0b;">
+                        <p style="margin: 0; font-size: 0.95rem; color: #1f2937; font-weight: 600;">
+                            <span style="font-size: 1.5rem; display: block; margin-bottom: 4px;">💰 ROI Breakdown</span>
+                            Monthly value: $600-2,000+
+                        </p>
+                    </div>
+                    
+                    <ul class="membership-features">
+                        <li style="font-weight: 600; color: #8c52ff;">Everything in Launchpad Lite plus:</li>
+                        <li>Advanced toolkits & templates</li>
+                        <li>Grant-readiness toolkit</li>
+                        <li>Disaster & incident response planning</li>
+                        <li>Risk assessment tools</li>
+                        <li style="background: #fef3c7; padding-left: 32px; border-radius: 4px; font-weight: 600;"> Grant Connect - Community Edition ($624/year value)</li>
+                        <li>Access to vetted experts at nonprofit-friendly rates</li>
+                        <li>Priority webinar access</li>
+                        <li>Access to private discussions with expert facilitators and peer support</li>
+                        <li>Student Volunteer Pool (Coming Fall 2026)</li>
                     </ul>
                     
-                    <a href="https://portal.projectlaunchpad.ca/sign-up"><button class="join-button">Get Started</button></a>
+                    <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary" style="width: 100%; text-align: center; display: block; animation: pulse-glow 2s infinite;">Get Started</a>
                 </div>
+            </div>
+            
+            <div class="fade-in stagger-3" style="text-align: center; margin-top: 48px; padding: 32px; background: #f8fafc; border-radius: 16px;">
+                <p style="font-size: 1.125rem; color: #4b5563; margin-bottom: 16px;">
+                    <strong style="color: #1f2937;">Not sure which tier is right for you?</strong>
+                </p>
+                <p style="font-size: 1rem; color: #6b7280; margin-bottom: 24px;">
+                    Start with Launchpad Lite (free) and upgrade to Lift-Off anytime. No credit card required to start.
+                </p>
+                <a href="joinplp.html" class="btn-secondary">View Detailed Comparison →</a>
             </div>
         </div>
     </section>
@@ -938,32 +958,32 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>18+ professional development courses</td>
-                            <td>$200-500 each</td>
-                        </tr>
-                        <tr>
-                            <td>Monthly expert consultation</td>
-                            <td>$150-300/session</td>
-                        </tr>
-                        <tr>
-                            <td>Security Suite with 50%+ discounts (PAM, password mgr, email security) + free DNS (10 endpoints) + training</td>
-                            <td>$300-600/month full price</td>
-                        </tr>
-                        <tr>
                             <td>Grant Connect – Community Edition access</td>
-                            <td>Average $624/year (Community Edition pricing)</td>
+                            <td>Average $624/year ($52/month)</td>
                         </tr>
                         <tr>
-                            <td>Sector Allies discounts (if used 2x/year)</td>
-                            <td>$500-2,000 saved</td>
+                            <td>Cybersecurity tools</td>
+                            <td>$600+/year ($50+/month)</td>
                         </tr>
                         <tr>
-                            <td>Complete template library</td>
-                            <td>$50-200 each</td>
+                            <td>Time savings from templates, guides, & frameworks: 30-45 hours/month</td>
+                            <td>($1,500-$2,250 @ $50/hr)</td>
+                        </tr>
+                        <tr>
+                            <td>Professional development (webinars, training, expert access)</td>
+                            <td>$300-$500/month</td>
+                        </tr>
+                        <tr>
+                            <td>Sector Allies discounts</td>
+                            <td>$125-$500+/month (for charities using services)</td>
+                        </tr>
+                        <tr>
+                            <td>Ecosystem access & peer network</td>
+                            <td>$100-$300/month</td>
                         </tr>
                         <tr class="total-row">
                             <td><strong>Monthly Value</strong></td>
-                            <td><strong>$600-2,000+</strong></td>
+                            <td><strong>$2,677-$3,625+ monthly value</strong></td>
                         </tr>
                         <tr class="investment-row">
                             <td><strong>Your Investment</strong></td>
