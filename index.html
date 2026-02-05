@@ -351,40 +351,46 @@
         }
 
         /* Auto-scrolling Partners */
-
+        /* Body of the logos */
         .partners-section {
+            white-space: nowrap;
             padding: 60px 0;
             background: #ffffff;
-            overflow: hidden;
             position: relative;
             width: 100%;
             overflow: hidden;
             /*  */
         }
         
-
+        /* Block of the all images partners-scroll = logoslids*/
         .partners-scroll {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: infiniteScroll 15s linear infinite;
-        }
+            display: inline-block;
 
-        @keyframes infiniteScroll {
-            from {transform: translate(94%)} /* where it will go Will change if you add more logos */
-            to {transform: translate(-100%)} /* how far until you want it loop KEEP THIS THE SAME ONLY CHANGE THE TOP VALUE*/
+            /* display: inline-block;
+            align-items: center;
+            justify-content: center;  */
+            /* 15s */
+            animation: infiniteScrollMaxScreen 15s linear infinite; 
+        }
+        @keyframes infiniteScrollMaxScreen {
+            0% {
+                transform: translateX(-18.8%);
+            }
+            100% {
+                transform: translateX(-119%);
+            }
         }  
 
+
         .partner-logo {
-            display: inline-block;
             height: 60px;
             width: 140px;
             margin: 0 30px;
             background: #f3f4f6;
             border-radius: 8px;
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            /* align-items: center;
+            justify-content: center; */
             font-weight: 600;
             color: #6b7280;
             font-size: 0.875rem;
@@ -1864,32 +1870,33 @@
         <div class="container">
             <h2 class="partners-title">Our Impact Network</h2>
             <div class="carousel">
-
-
-
-
             <div class="partners-scroll">
-                <div><img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img"></div>
-                <div><img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img"></div>
-                <div><img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img"></div>
-                <div><img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img"></div>
-                <div><img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img"></div>
-                <div><img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img"></div>
-                <div><img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img"></div>
-                <div><img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img"></div>
-                <div><img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img"></div>
+                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
+                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
+                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
+                <img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img">
+                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
+                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
+                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
+                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
+                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <img src="img/logos/writeworks(2).png" alt="Writeworks" class="partner-logo-img">
+                <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
                 <!-- Duplicate for seamless loop -->
-                <div><img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img"></div>
-                <div><img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img"></div>
-                <div><img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img"></div>
-                <div><img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img"></div>
-                <div><img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img"></div>
-                <div><img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img"></div>
-                <div><img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img"></div>
-                <div><img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img"></div>
-                <div><img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img"></div>
-
             </div>
+                <div class="partners-scroll">
+                <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
+                <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
+                <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
+                <img src="img/logos/mcgill_logo.png" alt="McGill" class="partner-logo-img">
+                <img src="img/logos/fundraisinglab_logo.webp" alt="Fundraising Lab" class="partner-logo-img">
+                <img src="img/logos/hilborn_logo.jpg" alt="Hilborn" class="partner-logo-img">
+                <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
+                <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
+                <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <img src="img/logos/writeworks(2).png" alt="Writeworks" class="partner-logo-img">
+                <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
+                </div>
             </div>
             <div class="partners-cta">
                 <a href="about/plp-impact-network.html" class="btn-primary">Learn More</a>
