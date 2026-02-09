@@ -374,12 +374,16 @@
         }
         @keyframes infiniteScrollMaxScreen {
             0% {
-                transform: translateX(-18.8%);
+                transform: translateX(0px);
             }
             100% {
-                transform: translateX(-119%);
+                transform: translateX(-2812px);
             }
         }  
+
+        .animation-start {
+            animation: infiniteScrollMaxScreen 15s linear infinite;
+        }
 
 
         .partner-logo {
@@ -1870,7 +1874,7 @@
         <div class="container">
             <h2 class="partners-title">Our Impact Network</h2>
             <div class="carousel">
-            <div class="partners-scroll">
+            <div class="partners-scroll" id="partner-scroll-id">
                 <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
                 <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
                 <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
@@ -1884,7 +1888,7 @@
                 <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
                 <!-- Duplicate for seamless loop -->
             </div>
-                <div class="partners-scroll">
+                <div class="partners-scroll" id="partner-scroll-id">
                 <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
                 <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
                 <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
@@ -1897,7 +1901,9 @@
                 <img src="img/logos/writeworks(2).png" alt="Writeworks" class="partner-logo-img">
                 <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
                 </div>
+
             </div>
+            
             <div class="partners-cta">
                 <a href="about/plp-impact-network.html" class="btn-primary">Learn More</a>
             </div>
@@ -2629,6 +2635,9 @@
                 button.classList.remove('active');
             }
         }
+ 
+        
+
     </script>
     <script src="mobile-nav.js"></script>
 </body>
