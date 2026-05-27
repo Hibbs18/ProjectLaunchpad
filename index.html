@@ -351,28 +351,50 @@
         }
 
         /* Auto-scrolling Partners */
+        /* Body of the logos */
         .partners-section {
+            white-space: nowrap;
             padding: 60px 0;
             background: #ffffff;
+            position: relative;
+            width: 100%;
             overflow: hidden;
+            /*  */
+        }
+        
+        /* Block of the all images partners-scroll = logoslids*/
+        .partners-scroll {
+            display: inline-block;
+
+            /* display: inline-block;
+            align-items: center;
+            justify-content: center;  */
+            /* 15s */
+            animation: infiniteScrollMaxScreen 15s linear infinite; 
+        }
+        @keyframes infiniteScrollMaxScreen {
+            0% {
+                transform: translateX(0px);
+            }
+            100% {
+                transform: translateX(-2812px);
+            }
+        }  
+
+        .animation-start {
+            animation: infiniteScrollMaxScreen 15s linear infinite;
         }
 
-        .partners-scroll {
-            white-space: nowrap;
-            animation: scroll 40s linear infinite;
-            position: relative;
-        }
 
         .partner-logo {
-            display: inline-block;
             height: 60px;
             width: 140px;
             margin: 0 30px;
             background: #f3f4f6;
             border-radius: 8px;
             display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            /* align-items: center;
+            justify-content: center; */
             font-weight: 600;
             color: #6b7280;
             font-size: 0.875rem;
@@ -1594,14 +1616,14 @@
         }
 
         .membership-section .membership-card.featured::before {
-            content: 'Best Value for Charities';
+            content: 'Best Value';
             position: absolute;
             top: -15px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(90deg, #ff5c7f, #8b5cf6);
             color: white;
-            padding: 6px 20px;
+            padding: 6px 50px 6px 50px;
             border-radius: 20px;
             font-size: 0.8em;
             font-weight: bold;
@@ -1749,11 +1771,11 @@
                     <div class="outcome-tools" style="display: none;">
                         <p class="tool-label">Tools & Resources Available to You:</p>
                         <ul class="tool-list">
-                            <li>Annual fundraising calendars</li>
+                            <li>Imagine Canada's Grant Connect - Community Edition Access</li>
                             <li>Grant-writing templates & toolkit</li>
+                            <li>Annual Fundraising calendars</li>
                             <li>Donor engagement strategies</li>
-                            <li>Imagine Canada's Grant Connect - Community Edition access</li>
-                            <li>Campaign ROI & gift matrix calculators</li>
+                            <li>Grant Readiness Checklist</li>
                         </ul>
                     </div>
                     <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
@@ -1766,7 +1788,7 @@
                     <div class="outcome-tools" style="display: none;">
                         <p class="tool-label">Tools & Resources Available to You:</p>
                         <ul class="tool-list">
-                            <li>Social media templates library</li>
+                            <li>Social Media Strategy Guidance</li>
                             <li>Content creation guides</li>
                             <li>Email marketing templates</li>
                             <li>Brand messaging frameworks</li>
@@ -1785,7 +1807,7 @@
                         <ul class="tool-list">
                             <li>Project management templates</li>
                             <li>Volunteer management systems</li>
-                            <li>AI-powered workflow tools</li>
+                            <li>HR Management tools and frameworks</li>
                             <li>Disaster & incident response planning</li>
                             <li>Operations & standard operation procedure library</li>
                         </ul>
@@ -1817,11 +1839,11 @@
                     <div class="outcome-tools" style="display: none;">
                         <p class="tool-label">Tools & Resources Available to You:</p>
                         <ul class="tool-list">
-                            <li>Micro-consultations</li>
-                            <li>Webinars & townhalls</li>
-                            <li>On-demand training library</li>
-                            <li>Best practices database</li>
-                            <li>Expert Q&A sessions</li>
+                            <li>Monthly expert-led webinars</li>
+                            <li>Quarterly community townhalls</li>
+                            <li>On-demand training & e-learning library</li>
+                            <li>Best practices & resource knowledge base</li>
+                            <li>Sector news, insights and trend reports</li>
                         </ul>
                     </div>
                     <button class="btn-toggle-tools" onclick="toggleTools(this)">View Tools & Resources ▼</button>
@@ -1835,8 +1857,8 @@
                         <p class="tool-label">Tools & Resources Available to You:</p>
                         <ul class="tool-list">
                             <li>Vetted expert network access</li>
-                            <li>Student volunteer pool</li>
-                            <li>Strategic planning guides</li>
+                            <li>Integrated ecosystem for collaboration and support</li>
+                            <li>Student volunteer pool (Coming Soon!)</li>
                             <li>Capacity building resources</li>
                             <li>Peer learning roundtables</li>
                         </ul>
@@ -1851,7 +1873,8 @@
     <section class="partners-section">
         <div class="container">
             <h2 class="partners-title">Our Impact Network</h2>
-            <div class="partners-scroll">
+            <div class="carousel">
+            <div class="partners-scroll" id="partner-scroll-id">
                 <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
                 <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
                 <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
@@ -1861,7 +1884,11 @@
                 <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
                 <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
                 <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <img src="img/logos/writeworks(2).png" alt="Writeworks" class="partner-logo-img">
+                <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
                 <!-- Duplicate for seamless loop -->
+            </div>
+                <div class="partners-scroll" id="partner-scroll-id">
                 <img src="img/logos/harmonia_logo.png" alt="Harmonia Philanthropy" class="partner-logo-img">
                 <img src="img/logos/telosone_logo.png" alt="Telos One" class="partner-logo-img">
                 <img src="img/logos/imagine_logo.png" alt="Imagine Canada" class="partner-logo-img">
@@ -1871,7 +1898,12 @@
                 <img src="img/logos/controld_logo.png" alt="ControlD" class="partner-logo-img">
                 <img src="img/logos/salytics_logo.png" alt="Salytics" class="partner-logo-img">
                 <img src="img/logos/virtualworks_logo.png" alt="VirtualWorks" class="partner-logo-img">
+                <img src="img/logos/writeworks(2).png" alt="Writeworks" class="partner-logo-img">
+                <img src="img/logos/zeffy-logo.png" alt="Zeffy" class="partner-logo-img">
+                </div>
+
             </div>
+            
             <div class="partners-cta">
                 <a href="about/plp-impact-network.html" class="btn-primary">Learn More</a>
             </div>
@@ -1901,9 +1933,10 @@
                     <p class="value-description">We find, vet, and simplify opportunities for you</p>
                 </div>
                 
-                <div class="value-card fade-in stagger-3">
+                <div class="value-card fade-in stagger-3" style="border: 3px solid #f59e0b; background: linear-gradient(135deg, #fef3c7 0%, #ffffff 100%);">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #f59e0b, #fbbf24); color: white; padding: 4px 16px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;">LIFT-OFF EXCLUSIVE</div>
                     <div class="value-icon">🤝</div>
-                    <div class="value-number">9</div>
+                    <div class="value-number" style="color: #f59e0b;">9</div>
                     <div class="value-title">Sector Allies</div>
                     <p class="value-description">Access discounted services from vetted professionals who understand small charity budgets</p>
                 </div>
@@ -1941,7 +1974,7 @@
                 <div class="step-card fade-in stagger-2">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Access Your Resources</h3>
-                    <p class="step-description">Tools, templates, AI generators, expert guidance—all in one place</p>
+                    <p class="step-description">Tools, templates, expert guidance—all in one place</p>
                 </div>
                 
                 <div class="step-arrow fade-in stagger-3">→</div>
@@ -1960,13 +1993,13 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title fade-in">Choose Your Launchpad</h2>
-                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities.</p>
+                <p class="section-subtitle fade-in stagger-1">Start free or unlock full potential—both designed exclusively for smaller Canadian charities <span style="color: #22c55e;">and nonprofits.</span></p>
             </div>
             
             <div class="membership-grid">
                 <div class="membership-card fade-in stagger-1">
-                    <div class="membership-badge" style="background: #6b7280;">Launchpad Lite</div>
-                    <h3 class="membership-title">Free Forever</h3>
+                    <h3 class="membership-title">Launchpad Lite</h3>
+                    <h3 class="membership-title" style="color: #8c52ff; font-size: 2rem;">Free <span style="color: grey; font-size: 1rem;">forever</span></h3>
                     <p class="membership-description">Essential resources to get started</p>
                     
                     <ul class="membership-features">
@@ -1984,29 +2017,28 @@
                 </div>
                 
                 <div class="membership-card featured fade-in stagger-2">
-                    <div class="membership-badge">Lift-Off Tier</div>
-                    <h3 class="membership-title">$99/month</h3>
+                    <h3 class="membership-title">Lift-Off Tier</h3>
+                    <h3 class="membership-title" style="color: #8c52ff; font-size: 2rem;">$99 <span style="color: grey; font-size: 1rem;">/month</span></h3>
                     <p class="membership-description" style="color: #22c55e; font-weight: 600; font-size: 1.125rem;">$5,000+ annual value unlocked</p>
                     
                     <div style="background: #fef3c7; padding: 16px; border-radius: 8px; margin-bottom: 24px; border-left: 4px solid #f59e0b;">
                         <p style="margin: 0; font-size: 0.95rem; color: #1f2937; font-weight: 600;">
                             <span style="font-size: 1.5rem; display: block; margin-bottom: 4px;">💰 ROI Breakdown</span>
-                            Monthly value: $600-2,000+ | Your investment: $99
+                            Monthly value: $600-2,000+
                         </p>
                     </div>
                     
                     <ul class="membership-features">
                         <li style="font-weight: 600; color: #8c52ff;">Everything in Launchpad Lite plus:</li>
-                        <li>Monthly micro-consultations with experts</li>
-                        <li>Advanced toolkits & templates (500+)</li>
+                        <li>Advanced toolkits & templates</li>
                         <li>Grant-readiness toolkit</li>
                         <li>Disaster & incident response planning</li>
                         <li>Risk assessment tools</li>
                         <li style="background: #fef3c7; padding-left: 32px; border-radius: 4px; font-weight: 600;"> Grant Connect - Community Edition ($624/year value)</li>
-                        <li>Subsidized access to vetted sector allies (25% off)</li>
+                        <li>Access to vetted experts at nonprofit-friendly rates</li>
                         <li>Priority webinar access</li>
-                        <li>Small-group coaching sessions</li>
-                        <li>Student volunteer pool access</li>
+                        <li>Access to private discussions with expert facilitators and peer support</li>
+                        <li>Student Volunteer Pool (Coming Fall 2026)</li>
                     </ul>
                     
                     <a href="https://portal.projectlaunchpad.ca/sign-up" class="btn-primary" style="width: 100%; text-align: center; display: block; animation: pulse-glow 2s infinite;">Get Started</a>
@@ -2022,9 +2054,6 @@
                 </p>
                 <a href="joinplp.html" class="btn-secondary">View Detailed Comparison →</a>
             </div>
-        </div>
-    </section>
-
         </div>
     </section>
 
@@ -2065,38 +2094,10 @@
                                 <span class="slide-badge">New courses added regularly</span>
                             </div>
                         </div>
-
-                        <div class="preview-slide" data-slide="1">
-                            <div class="slide-content">
-                                <h3>AI Campaign-in-a-Box</h3>
-                                <p>Generate complete monthly campaigns in 60 seconds—email copy, social posts, poster text.</p>
-                                <ul class="feature-checklist">
-                                    <li>4 weeks of social media posts (FB, IG, LinkedIn)</li>
-                                    <li>Complete email sequence with subject lines</li>
-                                    <li>Poster/graphic copy with compliance notes</li>
-                                    <li>Call-to-action variations</li>
-                                    <li>Export as Word doc or copy-paste directly</li>
-                                </ul>
-                                <span class="slide-badge">Saves 8-10 hours per campaign</span>
-                            </div>
-                        </div>
-
-                        <div class="preview-slide" data-slide="2">
-                            <div class="slide-content">
-                                <h3>18+ Training Courses</h3>
-                                <p>From fundraising fundamentals to cybersecurity essentials—all Canadian-focused.</p>
-                                <ul class="feature-checklist">
-                                    <li>Fundraising & Development</li>
-                                    <li>Marketing & Communications</li>
-                                    <li>Operations & Governance</li>
-                                    <li>Technology & Security</li>
-                                    <li>Compliance & Legal</li>
-                                </ul>
-                                <span class="slide-badge">New courses added monthly</span>
-                            </div>
-                        </div>
                     </div>
-                    <div class="carousel-controls">
+
+                    <!-- In case we want to add more slides to the frameworks and training panel in the future -->
+                    <div class="carousel-controls" style="display: none;">
                         <button class="carousel-prev">‹</button>
                         <div class="carousel-dots">
                             <span class="dot active" data-slide="0"></span>
@@ -2105,6 +2106,7 @@
                         </div>
                         <button class="carousel-next">›</button>
                     </div>
+
                 </div>
 
                 <!-- PANEL 2: Tools -->
@@ -2113,11 +2115,10 @@
                         
                         <div class="preview-slide active" data-slide="0">
                             <div class="slide-content">
-                                <h3>50+ Templates and Tools (and growing)</h3>
+                                <h3>30+ Templates and Tools (and growing)</h3>
                                 <p>Powerful, practical resources designed specifically for smaller Canadian charities.</p>
                                 <ul class="feature-checklist">
                                     <li><strong>Gift Planning Matrix</strong> - Strategic donor cultivation and major gift planning</li>
-                                    <li><strong>Cyber Readiness Checklist</strong> - Assess and improve your organization's security posture</li>
                                     <li><strong>Policy Document Templates</strong> - Essential governance and operational policies</li>
                                     <li><strong>Budget Calculators & Financial Tools</strong> - Streamline financial planning and reporting</li>
                                     <li><strong>Consolidated Resource Hub</strong> - One-stop access to vetted free resources across all categories</li>
@@ -2128,7 +2129,7 @@
 
                         <div class="preview-slide" data-slide="1">
                             <div class="slide-content">
-                                <h3>🎯 Grant Connect Access</h3>
+                                <h3>🎯 Grant Connect - Community Edition Access</h3>
                                 <p><strong>Average $624/year value.</strong> Included FREE with Lift-Off membership.</p>
 </search_and_replace>
                                 <ul class="feature-checklist">
@@ -2136,7 +2137,7 @@
                                     <li>Search by region, cause, funding amount</li>
                                     <li>Automated deadline notifications</li>
                                     <li>Track applications and submissions</li>
-                                    <li>Powered by Imagine Canada</li>
+                                    <li>Powered by Imagine Canada & Salytics</li>
                                 </ul>
                                 <span class="slide-badge highlight">🏆 Most Valuable Benefit</span>
                             </div>
@@ -2151,7 +2152,7 @@
                                     <li>Password manager for team</li>
                                     <li>Email protection & phishing defense</li>
                                     <li>Security training & best practices</li>
-                                    <li>Ongoing support from ControlD partnership</li>
+                                    <li>Ongoing support from Control D partnership</li>
                                 </ul>
                                 <span class="slide-badge">Normally $300-600/month</span>
                             </div>
@@ -2174,7 +2175,7 @@
                         
                         <div class="preview-slide active" data-slide="0">
                             <div class="slide-content">
-                                <h3>7 Vetted Sector Allies</h3>
+                                <h3>9 Vetted Sector Allies (and Growing)</h3>
                                 <p>Pre-negotiated discounts with professionals who understand small charity budgets.</p>
                                 <ul class="feature-checklist">
                                     <li>25% off contracts under $5K</li>
@@ -2183,22 +2184,8 @@
                                     <li>Group rates for multiple charities</li>
                                     <li>Quality guaranteed - all experts vetted</li>
                                 </ul>
-                                <span class="slide-badge">Harmonia, ControlD, Salytics +4</span>
-                            </div>
-                        </div>
-
-                        <div class="preview-slide" data-slide="1">
-                            <div class="slide-content">
-                                <h3>Monthly Micro-Consultations</h3>
-                                <p>30-minute video calls with sector experts included in Lift-Off membership.</p>
-                                <ul class="feature-checklist">
-                                    <li>Book when you need specific guidance</li>
-                                    <li>Experts in fundraising, marketing, governance, IT</li>
-                                    <li>One session per month included</li>
-                                    <li>Additional sessions at member rates</li>
-                                    <li>Real answers from real professionals</li>
-                                </ul>
-                                <span class="slide-badge">Worth $150-300/session</span>
+                                <p style="filter: brightness(150%); font-size: 1rem;">Our network is growing to continuously meet your evolving needs.</p>
+                                <span class="slide-badge">Marketing, Grant Writing, Operations & more</span>
                             </div>
                         </div>
 
@@ -2207,11 +2194,10 @@
                                 <h3>Community & Live Events</h3>
                                 <p>Connect with peers, share experiences, and learn from each other.</p>
                                 <ul class="feature-checklist">
-                                    <li>Monthly Townhalls (live)</li>
-                                    <li>Quarterly deep-dive webinars</li>
-                                    <li>Small-group peer roundtables</li>
-                                    <li>Member-only discussion forums</li>
-                                    <li>Student volunteer pool (80% placement success)</li>
+                                    <li>Virtual Townhalls (live)</li>
+                                    <li>Monthly deep-dive webinars</li>
+                                    <li>Peer Learning & Community Discussions</li>
+                                    <li>Student volunteer pool (Coming Fall 2026)</li>
                                 </ul>
                                 <span class="slide-badge">Active community of 50+ charities</span>
                             </div>
@@ -2221,7 +2207,6 @@
                         <button class="carousel-prev">‹</button>
                         <div class="carousel-dots">
                             <span class="dot active" data-slide="0"></span>
-                            <span class="dot" data-slide="1"></span>
                             <span class="dot" data-slide="2"></span>
                         </div>
                         <button class="carousel-next">›</button>
@@ -2316,10 +2301,10 @@
                     <h3 class="engagement-title">Community</h3>
                     <p class="engagement-description">Connect with peers, share experiences, and build meaningful partnerships.</p>
                     <ul class="engagement-list">
-                        <li>Peer learning roundtables</li>
                         <li>Member forums & discussions</li>
-                        <li>Networking events</li>
-                        <li>Collaboration opportunities</li>
+                        <li>Safe Space for Peer Learning & Shared Experiences</li>
+                        <li>Member spotlights & Success Stories</li>
+                        <li>Collaboration & Community Support</li>
                     </ul>
                 </div>
 
@@ -2328,10 +2313,10 @@
                     <h3 class="engagement-title">Knowledge</h3>
                     <p class="engagement-description">Access expert guidance, training, and resources when you need them.</p>
                     <ul class="engagement-list">
-                        <li>On-demand training library</li>
-                        <li>Micro-consultations</li>
-                        <li>Webinars & workshops</li>
-                        <li>Best practices database</li>
+                        <li>On-demand training library and e-courses</li>
+                        <li>Monthly expert-led webinars</li>
+                        <li>Comprehensive resource hub with templates and toolkits</li>
+                        <li>Step-by-step guides and how-to resources</li>
                     </ul>
                 </div>
 
@@ -2648,6 +2633,9 @@
                 button.classList.remove('active');
             }
         }
+ 
+        
+
     </script>
     <script src="mobile-nav.js"></script>
 </body>
